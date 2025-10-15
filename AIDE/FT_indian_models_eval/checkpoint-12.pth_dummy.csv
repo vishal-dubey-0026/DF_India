@@ -1,0 +1,3 @@
+FT_indian_models_v3/checkpoint-12.pth model testing on...
+testset,accuracy,avg precision
+HIDF_dataset_Indian_images,0.5553822152886115,0.41327908447652156

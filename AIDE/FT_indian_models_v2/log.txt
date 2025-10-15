@@ -1,0 +1,2 @@
+{"train_lr": 1.2335425462198975e-05, "train_loss": 0.2759988244887567, "train_class_acc": 0.9563350701829009, "train_min_lr": 1.2335425462198975e-05, "test_loss": 0.6149233968361564, "test_acc1": 65.68894956934827, "test_acc5": 100.0, "epoch": 1, "n_parameters": 54432466}
+{"train_lr": 1.2056920931304217e-05, "train_loss": 0.2652433775603036, "train_class_acc": 0.9632470225435985, "train_min_lr": 1.2056920931304217e-05, "test_loss": 0.602966550251712, "test_acc1": 66.3710778094574, "test_acc5": 100.0, "epoch": 2, "n_parameters": 54432466}
