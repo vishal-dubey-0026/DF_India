@@ -1,2 +1,4 @@
 *.pth
+*.pickle
 Effort-AIGI-Detection/models--openai--clip-vit-large-patch14/
+Effort-AIGI-Detection/ckpts

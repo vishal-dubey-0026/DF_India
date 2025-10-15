@@ -1,0 +1,1104 @@
+2025-09-21 11:53:13,490 - INFO - Save log to ./zhiyuanyan/logs/benchv2/icml25/release
+2025-09-21 11:53:13,491 - INFO - --------------- Configuration ---------------
+2025-09-21 11:53:13,492 - INFO - Parameters: 
+log_dir: ./zhiyuanyan/logs/benchv2/icml25/release
+pretrained: no need to provide this for the effort model
+model_name: effort
+backbone_name: vit
+pretrained_weights: ../ckpts/effort_clip_L14_trainOn_FaceForensic.pth
+backbone_config: {'mode': 'original', 'num_classes': 2, 'inc': 3, 'dropout': False}
+all_dataset: ['FaceForensics++', 'FF-F2F', 'FF-DF', 'FF-FS', 'FF-NT', 'FaceShifter', 'DeepFakeDetection', 'Celeb-DF-v1', 'Celeb-DF-v2', 'DFDCP', 'DFDC', 'DeeperForensics-1.0', 'UADFV', 'UADFV_HAV-DF_train', 'UADFV_HAV-DF_test', 'UADFV_FairFD_Indian']
+train_dataset: ['UADFV_FairFD_Indian', 'UADFV_HAV-DF_train']
+test_dataset: ['UADFV_HAV-DF_test']
+compression: c23
+train_batchSize: 24
+test_batchSize: 24
+workers: 8
+frame_num: {'train': 8, 'test': 8}
+resolution: 224
+with_mask: False
+with_landmark: False
+use_data_augmentation: True
+data_aug: {'flip_prob': 0.5, 'rotate_prob': 0.5, 'rotate_limit': [-10, 10], 'blur_prob': 0.5, 'blur_limit': [3, 7], 'brightness_prob': 0.5, 'brightness_limit': [-0.1, 0.1], 'contrast_limit': [-0.1, 0.1], 'quality_lower': 40, 'quality_upper': 100}
+mean: [0.48145466, 0.4578275, 0.40821073]
+std: [0.26862954, 0.26130258, 0.27577711]
+optimizer: {'type': 'adam', 'adam': {'lr': 0.0002, 'beta1': 0.9, 'beta2': 0.999, 'eps': 1e-08, 'weight_decay': 0.0005, 'amsgrad': False}, 'sgd': {'lr': 0.0002, 'momentum': 0.9, 'weight_decay': 0.0005}}
+lr_scheduler: None
+nEpochs: 1000
+start_epoch: 0
+save_epoch: 1
+rec_iter: 100
+logdir: ./logs
+manualSeed: 1024
+save_ckpt: True
+save_feat: True
+loss_func: cross_entropy
+losstype: None
+metric_scoring: auc
+ngpu: 1
+cuda: True
+cudnn: True
+save_avg: True
+mode: train
+lmdb: False
+dry_run: False
+dataset_root_rgb: ./datasets
+lmdb_dir: I:\transform_2_lmdb
+dataset_json_folder: ./preprocessing/dataset_json_train
+SWA: False
+label_dict: {'DFD_fake': 1, 'DFD_real': 0, 'FF-SH': 1, 'FF-F2F': 1, 'FF-DF': 1, 'FF-FS': 1, 'FF-NT': 1, 'FF-FH': 1, 'FF-real': 0, 'CelebDFv1_real': 0, 'CelebDFv1_fake': 1, 'CelebDFv2_real': 0, 'CelebDFv2_fake': 1, 'DFDCP_Real': 0, 'DFDCP_FakeA': 1, 'DFDCP_FakeB': 1, 'DFDC_Fake': 1, 'DFDC_Real': 0, 'DF_fake': 1, 'DF_real': 0, 'UADFV_Fake': 1, 'UADFV_Real': 0, 'roop_Real': 0, 'roop_Fake': 1, 'FSAll_Fake': 1, 'FSAll_Real': 0, 'FRAll_Fake': 1, 'FRAll_Real': 0, 'EFSAll_Fake': 1, 'EFSAll_Real': 0, 'DF40_train_Fake': 1, 'DF40_train_Real': 0, 'e4s_Fake': 1, 'e4s_Real': 0, 'danet_Fake': 1, 'danet_Real': 0, 'fomm_Fake': 1, 'fomm_Real': 0, 'Collaborative_Diffusion_Fake': 1, 'Collaborative_Diffusion_Real': 0, 'e4e_Fake': 1, 'e4e_Real': 0, 'hyperreenact_Fake': 1, 'hyperreenact_Real': 0, 'MRAA_Fake': 1, 'MRAA_Real': 0, 'one_shot_free_Fake': 1, 'one_shot_free_Real': 0, 'pirender_Fake': 1, 'pirender_Real': 0, 'tpsm_Fake': 1, 'tpsm_Real': 0, 'facedancer_Fake': 1, 'facedancer_Real': 0, 'facevid2vid_Fake': 1, 'facevid2vid_Real': 0, 'mcnet_Fake': 1, 'mcnet_Real': 0, 'mraa_Fake': 1, 'mraa_Real': 0, 'fsgan_Fake': 1, 'fsgan_Real': 0, 'lia_Fake': 1, 'lia_Real': 0, 'inswap_Fake': 1, 'inswap_Real': 0, 'simswap_Fake': 1, 'simswap_Real': 0, 'sadtalker_Fake': 1, 'sadtalker_Real': 0, 'wav2lip_Fake': 1, 'wav2lip_Real': 0, 'uniface_Fake': 1, 'uniface_Real': 0, 'blendface_Fake': 1, 'blendface_Real': 0, 'mobileswap_Fake': 1, 'mobileswap_Real': 0, 'faceswap_Fake': 1, 'faceswap_Real': 0, 'dalle2_face_Fake': 1, 'dalle2_face_Real': 0, 'MidJourney_Fake': 1, 'MidJourney_Real': 0, 'heygen_Fake': 1, 'heygen_Real': 0, 'whichisreal_Fake': 1, 'whichisreal_Real': 0, 'StyleGAN2_Fake': 1, 'StyleGAN2_Real': 0, 'StyleGAN3_Fake': 1, 'StyleGAN3_Real': 0, 'StyleGANXL_Fake': 1, 'StyleGANXL_Real': 0, 'ddim_Fake': 1, 'ddim_Real': 0, 'DiT_Fake': 1, 'DiT_Real': 0, 'pixart_Fake': 1, 'pixart_Real': 0, 'SiT_Fake': 1, 'SiT_Real': 0, 'sd1.5_Fake': 1, 'sd1.5_Real': 0, 'sd2.1_Fake': 1, 'sd2.1_Real': 0, 'VQGAN_Fake': 1, 'VQGAN_Real': 0, 'rddm_Fake': 1, 'rddm_Real': 0, 'stargan_Fake': 1, 'stargan_Real': 0, 'starganv2_Fake': 1, 'starganv2_Real': 0, 'styleclip_Fake': 1, 'styleclip_Real': 0, 'deepfacelab_Fake': 1, 'deepfacelab_Real': 0, 'CollabDiff_Fake': 1, 'CollabDiff_Real': 0, 'adm_Fake': 1, 'adm_Real': 0, 'biggan_Fake': 2, 'biggan_Real': 0, 'glide_Fake': 3, 'glide_Real': 0, 'midjourney_Fake': 4, 'midjourney_Real': 0, 'sdv4_Fake': 5, 'sdv4_Real': 0, 'sdv5_Fake': 6, 'sdv5_Real': 0, 'vqdm_Fake': 7, 'vqdm_Real': 0, 'wukong_Fake': 8, 'wukong_Real': 0, 'GPA_fake': 1, 'GPA_real': 0, 'Chameleon_Fake': 1, 'Chameleon_Real': 0}
+local_rank: 0
+ddp: False
+
+2025-09-21 12:02:19,724 - INFO - Save log to ./zhiyuanyan/logs/benchv2/icml25/release
+2025-09-21 12:02:19,725 - INFO - --------------- Configuration ---------------
+2025-09-21 12:02:19,726 - INFO - Parameters: 
+log_dir: ./zhiyuanyan/logs/benchv2/icml25/release
+pretrained: no need to provide this for the effort model
+model_name: effort
+backbone_name: vit
+pretrained_weights: ../ckpts/effort_clip_L14_trainOn_FaceForensic.pth
+backbone_config: {'mode': 'original', 'num_classes': 2, 'inc': 3, 'dropout': False}
+all_dataset: ['FaceForensics++', 'FF-F2F', 'FF-DF', 'FF-FS', 'FF-NT', 'FaceShifter', 'DeepFakeDetection', 'Celeb-DF-v1', 'Celeb-DF-v2', 'DFDCP', 'DFDC', 'DeeperForensics-1.0', 'UADFV', 'UADFV_HAV-DF_train', 'UADFV_HAV-DF_test', 'UADFV_FairFD_Indian']
+train_dataset: ['UADFV_FairFD_Indian', 'UADFV_HAV-DF_train']
+test_dataset: ['UADFV_HAV-DF_test']
+compression: c23
+train_batchSize: 24
+test_batchSize: 24
+workers: 8
+frame_num: {'train': 8, 'test': 8}
+resolution: 224
+with_mask: False
+with_landmark: False
+use_data_augmentation: True
+data_aug: {'flip_prob': 0.5, 'rotate_prob': 0.5, 'rotate_limit': [-10, 10], 'blur_prob': 0.5, 'blur_limit': [3, 7], 'brightness_prob': 0.5, 'brightness_limit': [-0.1, 0.1], 'contrast_limit': [-0.1, 0.1], 'quality_lower': 40, 'quality_upper': 100}
+mean: [0.48145466, 0.4578275, 0.40821073]
+std: [0.26862954, 0.26130258, 0.27577711]
+optimizer: {'type': 'adam', 'adam': {'lr': 0.0002, 'beta1': 0.9, 'beta2': 0.999, 'eps': 1e-08, 'weight_decay': 0.0005, 'amsgrad': False}, 'sgd': {'lr': 0.0002, 'momentum': 0.9, 'weight_decay': 0.0005}}
+lr_scheduler: None
+nEpochs: 1000
+start_epoch: 0
+save_epoch: 1
+rec_iter: 100
+logdir: ./logs
+manualSeed: 1024
+save_ckpt: True
+save_feat: True
+loss_func: cross_entropy
+losstype: None
+metric_scoring: auc
+ngpu: 1
+cuda: True
+cudnn: True
+save_avg: True
+mode: train
+lmdb: False
+dry_run: False
+dataset_root_rgb: ./datasets
+lmdb_dir: I:\transform_2_lmdb
+dataset_json_folder: ./preprocessing/dataset_json_train
+SWA: False
+label_dict: {'DFD_fake': 1, 'DFD_real': 0, 'FF-SH': 1, 'FF-F2F': 1, 'FF-DF': 1, 'FF-FS': 1, 'FF-NT': 1, 'FF-FH': 1, 'FF-real': 0, 'CelebDFv1_real': 0, 'CelebDFv1_fake': 1, 'CelebDFv2_real': 0, 'CelebDFv2_fake': 1, 'DFDCP_Real': 0, 'DFDCP_FakeA': 1, 'DFDCP_FakeB': 1, 'DFDC_Fake': 1, 'DFDC_Real': 0, 'DF_fake': 1, 'DF_real': 0, 'UADFV_Fake': 1, 'UADFV_Real': 0, 'roop_Real': 0, 'roop_Fake': 1, 'FSAll_Fake': 1, 'FSAll_Real': 0, 'FRAll_Fake': 1, 'FRAll_Real': 0, 'EFSAll_Fake': 1, 'EFSAll_Real': 0, 'DF40_train_Fake': 1, 'DF40_train_Real': 0, 'e4s_Fake': 1, 'e4s_Real': 0, 'danet_Fake': 1, 'danet_Real': 0, 'fomm_Fake': 1, 'fomm_Real': 0, 'Collaborative_Diffusion_Fake': 1, 'Collaborative_Diffusion_Real': 0, 'e4e_Fake': 1, 'e4e_Real': 0, 'hyperreenact_Fake': 1, 'hyperreenact_Real': 0, 'MRAA_Fake': 1, 'MRAA_Real': 0, 'one_shot_free_Fake': 1, 'one_shot_free_Real': 0, 'pirender_Fake': 1, 'pirender_Real': 0, 'tpsm_Fake': 1, 'tpsm_Real': 0, 'facedancer_Fake': 1, 'facedancer_Real': 0, 'facevid2vid_Fake': 1, 'facevid2vid_Real': 0, 'mcnet_Fake': 1, 'mcnet_Real': 0, 'mraa_Fake': 1, 'mraa_Real': 0, 'fsgan_Fake': 1, 'fsgan_Real': 0, 'lia_Fake': 1, 'lia_Real': 0, 'inswap_Fake': 1, 'inswap_Real': 0, 'simswap_Fake': 1, 'simswap_Real': 0, 'sadtalker_Fake': 1, 'sadtalker_Real': 0, 'wav2lip_Fake': 1, 'wav2lip_Real': 0, 'uniface_Fake': 1, 'uniface_Real': 0, 'blendface_Fake': 1, 'blendface_Real': 0, 'mobileswap_Fake': 1, 'mobileswap_Real': 0, 'faceswap_Fake': 1, 'faceswap_Real': 0, 'dalle2_face_Fake': 1, 'dalle2_face_Real': 0, 'MidJourney_Fake': 1, 'MidJourney_Real': 0, 'heygen_Fake': 1, 'heygen_Real': 0, 'whichisreal_Fake': 1, 'whichisreal_Real': 0, 'StyleGAN2_Fake': 1, 'StyleGAN2_Real': 0, 'StyleGAN3_Fake': 1, 'StyleGAN3_Real': 0, 'StyleGANXL_Fake': 1, 'StyleGANXL_Real': 0, 'ddim_Fake': 1, 'ddim_Real': 0, 'DiT_Fake': 1, 'DiT_Real': 0, 'pixart_Fake': 1, 'pixart_Real': 0, 'SiT_Fake': 1, 'SiT_Real': 0, 'sd1.5_Fake': 1, 'sd1.5_Real': 0, 'sd2.1_Fake': 1, 'sd2.1_Real': 0, 'VQGAN_Fake': 1, 'VQGAN_Real': 0, 'rddm_Fake': 1, 'rddm_Real': 0, 'stargan_Fake': 1, 'stargan_Real': 0, 'starganv2_Fake': 1, 'starganv2_Real': 0, 'styleclip_Fake': 1, 'styleclip_Real': 0, 'deepfacelab_Fake': 1, 'deepfacelab_Real': 0, 'CollabDiff_Fake': 1, 'CollabDiff_Real': 0, 'adm_Fake': 1, 'adm_Real': 0, 'biggan_Fake': 2, 'biggan_Real': 0, 'glide_Fake': 3, 'glide_Real': 0, 'midjourney_Fake': 4, 'midjourney_Real': 0, 'sdv4_Fake': 5, 'sdv4_Real': 0, 'sdv5_Fake': 6, 'sdv5_Real': 0, 'vqdm_Fake': 7, 'vqdm_Real': 0, 'wukong_Fake': 8, 'wukong_Real': 0, 'GPA_fake': 1, 'GPA_real': 0, 'Chameleon_Fake': 1, 'Chameleon_Real': 0}
+local_rank: 0
+ddp: False
+
+2025-09-21 12:08:32,841 - INFO - Save log to ./zhiyuanyan/logs/benchv2/icml25/release
+2025-09-21 12:08:32,842 - INFO - --------------- Configuration ---------------
+2025-09-21 12:08:32,843 - INFO - Parameters: 
+log_dir: ./zhiyuanyan/logs/benchv2/icml25/release
+pretrained: no need to provide this for the effort model
+model_name: effort
+backbone_name: vit
+pretrained_weights: ../ckpts/effort_clip_L14_trainOn_FaceForensic.pth
+backbone_config: {'mode': 'original', 'num_classes': 2, 'inc': 3, 'dropout': False}
+all_dataset: ['FaceForensics++', 'FF-F2F', 'FF-DF', 'FF-FS', 'FF-NT', 'FaceShifter', 'DeepFakeDetection', 'Celeb-DF-v1', 'Celeb-DF-v2', 'DFDCP', 'DFDC', 'DeeperForensics-1.0', 'UADFV', 'UADFV_HAV-DF_train', 'UADFV_HAV-DF_test', 'UADFV_FairFD_Indian']
+train_dataset: ['UADFV_FairFD_Indian', 'UADFV_HAV-DF_train']
+test_dataset: ['UADFV_HAV-DF_test']
+compression: c23
+train_batchSize: 24
+test_batchSize: 24
+workers: 8
+frame_num: {'train': 8, 'test': 8}
+resolution: 224
+with_mask: False
+with_landmark: False
+use_data_augmentation: True
+data_aug: {'flip_prob': 0.5, 'rotate_prob': 0.5, 'rotate_limit': [-10, 10], 'blur_prob': 0.5, 'blur_limit': [3, 7], 'brightness_prob': 0.5, 'brightness_limit': [-0.1, 0.1], 'contrast_limit': [-0.1, 0.1], 'quality_lower': 40, 'quality_upper': 100}
+mean: [0.48145466, 0.4578275, 0.40821073]
+std: [0.26862954, 0.26130258, 0.27577711]
+optimizer: {'type': 'adam', 'adam': {'lr': 0.0002, 'beta1': 0.9, 'beta2': 0.999, 'eps': 1e-08, 'weight_decay': 0.0005, 'amsgrad': False}, 'sgd': {'lr': 0.0002, 'momentum': 0.9, 'weight_decay': 0.0005}}
+lr_scheduler: None
+nEpochs: 1000
+start_epoch: 0
+save_epoch: 1
+rec_iter: 100
+logdir: ./logs
+manualSeed: 1024
+save_ckpt: True
+save_feat: True
+loss_func: cross_entropy
+losstype: None
+metric_scoring: auc
+ngpu: 1
+cuda: True
+cudnn: True
+save_avg: True
+mode: train
+lmdb: False
+dry_run: False
+dataset_root_rgb: ./datasets
+lmdb_dir: I:\transform_2_lmdb
+dataset_json_folder: ./preprocessing/dataset_json_train
+SWA: False
+label_dict: {'DFD_fake': 1, 'DFD_real': 0, 'FF-SH': 1, 'FF-F2F': 1, 'FF-DF': 1, 'FF-FS': 1, 'FF-NT': 1, 'FF-FH': 1, 'FF-real': 0, 'CelebDFv1_real': 0, 'CelebDFv1_fake': 1, 'CelebDFv2_real': 0, 'CelebDFv2_fake': 1, 'DFDCP_Real': 0, 'DFDCP_FakeA': 1, 'DFDCP_FakeB': 1, 'DFDC_Fake': 1, 'DFDC_Real': 0, 'DF_fake': 1, 'DF_real': 0, 'UADFV_Fake': 1, 'UADFV_Real': 0, 'roop_Real': 0, 'roop_Fake': 1, 'FSAll_Fake': 1, 'FSAll_Real': 0, 'FRAll_Fake': 1, 'FRAll_Real': 0, 'EFSAll_Fake': 1, 'EFSAll_Real': 0, 'DF40_train_Fake': 1, 'DF40_train_Real': 0, 'e4s_Fake': 1, 'e4s_Real': 0, 'danet_Fake': 1, 'danet_Real': 0, 'fomm_Fake': 1, 'fomm_Real': 0, 'Collaborative_Diffusion_Fake': 1, 'Collaborative_Diffusion_Real': 0, 'e4e_Fake': 1, 'e4e_Real': 0, 'hyperreenact_Fake': 1, 'hyperreenact_Real': 0, 'MRAA_Fake': 1, 'MRAA_Real': 0, 'one_shot_free_Fake': 1, 'one_shot_free_Real': 0, 'pirender_Fake': 1, 'pirender_Real': 0, 'tpsm_Fake': 1, 'tpsm_Real': 0, 'facedancer_Fake': 1, 'facedancer_Real': 0, 'facevid2vid_Fake': 1, 'facevid2vid_Real': 0, 'mcnet_Fake': 1, 'mcnet_Real': 0, 'mraa_Fake': 1, 'mraa_Real': 0, 'fsgan_Fake': 1, 'fsgan_Real': 0, 'lia_Fake': 1, 'lia_Real': 0, 'inswap_Fake': 1, 'inswap_Real': 0, 'simswap_Fake': 1, 'simswap_Real': 0, 'sadtalker_Fake': 1, 'sadtalker_Real': 0, 'wav2lip_Fake': 1, 'wav2lip_Real': 0, 'uniface_Fake': 1, 'uniface_Real': 0, 'blendface_Fake': 1, 'blendface_Real': 0, 'mobileswap_Fake': 1, 'mobileswap_Real': 0, 'faceswap_Fake': 1, 'faceswap_Real': 0, 'dalle2_face_Fake': 1, 'dalle2_face_Real': 0, 'MidJourney_Fake': 1, 'MidJourney_Real': 0, 'heygen_Fake': 1, 'heygen_Real': 0, 'whichisreal_Fake': 1, 'whichisreal_Real': 0, 'StyleGAN2_Fake': 1, 'StyleGAN2_Real': 0, 'StyleGAN3_Fake': 1, 'StyleGAN3_Real': 0, 'StyleGANXL_Fake': 1, 'StyleGANXL_Real': 0, 'ddim_Fake': 1, 'ddim_Real': 0, 'DiT_Fake': 1, 'DiT_Real': 0, 'pixart_Fake': 1, 'pixart_Real': 0, 'SiT_Fake': 1, 'SiT_Real': 0, 'sd1.5_Fake': 1, 'sd1.5_Real': 0, 'sd2.1_Fake': 1, 'sd2.1_Real': 0, 'VQGAN_Fake': 1, 'VQGAN_Real': 0, 'rddm_Fake': 1, 'rddm_Real': 0, 'stargan_Fake': 1, 'stargan_Real': 0, 'starganv2_Fake': 1, 'starganv2_Real': 0, 'styleclip_Fake': 1, 'styleclip_Real': 0, 'deepfacelab_Fake': 1, 'deepfacelab_Real': 0, 'CollabDiff_Fake': 1, 'CollabDiff_Real': 0, 'adm_Fake': 1, 'adm_Real': 0, 'biggan_Fake': 2, 'biggan_Real': 0, 'glide_Fake': 3, 'glide_Real': 0, 'midjourney_Fake': 4, 'midjourney_Real': 0, 'sdv4_Fake': 5, 'sdv4_Real': 0, 'sdv5_Fake': 6, 'sdv5_Real': 0, 'vqdm_Fake': 7, 'vqdm_Real': 0, 'wukong_Fake': 8, 'wukong_Real': 0, 'GPA_fake': 1, 'GPA_real': 0, 'Chameleon_Fake': 1, 'Chameleon_Real': 0}
+local_rank: 0
+ddp: False
+
+2025-09-21 12:09:57,581 - INFO - ===> Epoch[0] start!
+2025-09-21 12:09:57,628 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-08-29/train/UADFV_FairFD_Indian,UADFV_HAV-DF_train/data_dict_train.pickle
+2025-09-21 12:11:12,738 - INFO - Iter: 0    training-loss, overall: 0.44532856345176697    training-loss, real_loss: 0.8305584192276001    training-loss, fake_loss: 0.25271356105804443    
+2025-09-21 12:11:12,767 - INFO - Iter: 0    training-metric, acc: 0.7916666666666666    training-metric, auc: 0.8359375    training-metric, eer: 0.25    training-metric, ap: 0.9146996643707169    
+2025-09-21 12:14:24,348 - INFO - Save log to ./zhiyuanyan/logs/benchv2/icml25/release
+2025-09-21 12:14:24,349 - INFO - --------------- Configuration ---------------
+2025-09-21 12:14:24,351 - INFO - Parameters: 
+log_dir: ./zhiyuanyan/logs/benchv2/icml25/release
+pretrained: no need to provide this for the effort model
+model_name: effort
+backbone_name: vit
+pretrained_weights: ../ckpts/effort_clip_L14_trainOn_FaceForensic.pth
+backbone_config: {'mode': 'original', 'num_classes': 2, 'inc': 3, 'dropout': False}
+all_dataset: ['FaceForensics++', 'FF-F2F', 'FF-DF', 'FF-FS', 'FF-NT', 'FaceShifter', 'DeepFakeDetection', 'Celeb-DF-v1', 'Celeb-DF-v2', 'DFDCP', 'DFDC', 'DeeperForensics-1.0', 'UADFV', 'UADFV_HAV-DF_train', 'UADFV_HAV-DF_test', 'UADFV_FairFD_Indian']
+train_dataset: ['UADFV_FairFD_Indian', 'UADFV_HAV-DF_train']
+test_dataset: ['UADFV_HAV-DF_test']
+compression: c23
+train_batchSize: 48
+test_batchSize: 48
+workers: 8
+frame_num: {'train': 8, 'test': 8}
+resolution: 224
+with_mask: False
+with_landmark: False
+use_data_augmentation: True
+data_aug: {'flip_prob': 0.5, 'rotate_prob': 0.5, 'rotate_limit': [-10, 10], 'blur_prob': 0.5, 'blur_limit': [3, 7], 'brightness_prob': 0.5, 'brightness_limit': [-0.1, 0.1], 'contrast_limit': [-0.1, 0.1], 'quality_lower': 40, 'quality_upper': 100}
+mean: [0.48145466, 0.4578275, 0.40821073]
+std: [0.26862954, 0.26130258, 0.27577711]
+optimizer: {'type': 'adam', 'adam': {'lr': 0.0002, 'beta1': 0.9, 'beta2': 0.999, 'eps': 1e-08, 'weight_decay': 0.0005, 'amsgrad': False}, 'sgd': {'lr': 0.0002, 'momentum': 0.9, 'weight_decay': 0.0005}}
+lr_scheduler: None
+nEpochs: 1000
+start_epoch: 0
+save_epoch: 1
+rec_iter: 100
+logdir: ./logs
+manualSeed: 1024
+save_ckpt: True
+save_feat: True
+loss_func: cross_entropy
+losstype: None
+metric_scoring: auc
+ngpu: 1
+cuda: True
+cudnn: True
+save_avg: True
+mode: train
+lmdb: False
+dry_run: False
+dataset_root_rgb: ./datasets
+lmdb_dir: I:\transform_2_lmdb
+dataset_json_folder: ./preprocessing/dataset_json_train
+SWA: False
+label_dict: {'DFD_fake': 1, 'DFD_real': 0, 'FF-SH': 1, 'FF-F2F': 1, 'FF-DF': 1, 'FF-FS': 1, 'FF-NT': 1, 'FF-FH': 1, 'FF-real': 0, 'CelebDFv1_real': 0, 'CelebDFv1_fake': 1, 'CelebDFv2_real': 0, 'CelebDFv2_fake': 1, 'DFDCP_Real': 0, 'DFDCP_FakeA': 1, 'DFDCP_FakeB': 1, 'DFDC_Fake': 1, 'DFDC_Real': 0, 'DF_fake': 1, 'DF_real': 0, 'UADFV_Fake': 1, 'UADFV_Real': 0, 'roop_Real': 0, 'roop_Fake': 1, 'FSAll_Fake': 1, 'FSAll_Real': 0, 'FRAll_Fake': 1, 'FRAll_Real': 0, 'EFSAll_Fake': 1, 'EFSAll_Real': 0, 'DF40_train_Fake': 1, 'DF40_train_Real': 0, 'e4s_Fake': 1, 'e4s_Real': 0, 'danet_Fake': 1, 'danet_Real': 0, 'fomm_Fake': 1, 'fomm_Real': 0, 'Collaborative_Diffusion_Fake': 1, 'Collaborative_Diffusion_Real': 0, 'e4e_Fake': 1, 'e4e_Real': 0, 'hyperreenact_Fake': 1, 'hyperreenact_Real': 0, 'MRAA_Fake': 1, 'MRAA_Real': 0, 'one_shot_free_Fake': 1, 'one_shot_free_Real': 0, 'pirender_Fake': 1, 'pirender_Real': 0, 'tpsm_Fake': 1, 'tpsm_Real': 0, 'facedancer_Fake': 1, 'facedancer_Real': 0, 'facevid2vid_Fake': 1, 'facevid2vid_Real': 0, 'mcnet_Fake': 1, 'mcnet_Real': 0, 'mraa_Fake': 1, 'mraa_Real': 0, 'fsgan_Fake': 1, 'fsgan_Real': 0, 'lia_Fake': 1, 'lia_Real': 0, 'inswap_Fake': 1, 'inswap_Real': 0, 'simswap_Fake': 1, 'simswap_Real': 0, 'sadtalker_Fake': 1, 'sadtalker_Real': 0, 'wav2lip_Fake': 1, 'wav2lip_Real': 0, 'uniface_Fake': 1, 'uniface_Real': 0, 'blendface_Fake': 1, 'blendface_Real': 0, 'mobileswap_Fake': 1, 'mobileswap_Real': 0, 'faceswap_Fake': 1, 'faceswap_Real': 0, 'dalle2_face_Fake': 1, 'dalle2_face_Real': 0, 'MidJourney_Fake': 1, 'MidJourney_Real': 0, 'heygen_Fake': 1, 'heygen_Real': 0, 'whichisreal_Fake': 1, 'whichisreal_Real': 0, 'StyleGAN2_Fake': 1, 'StyleGAN2_Real': 0, 'StyleGAN3_Fake': 1, 'StyleGAN3_Real': 0, 'StyleGANXL_Fake': 1, 'StyleGANXL_Real': 0, 'ddim_Fake': 1, 'ddim_Real': 0, 'DiT_Fake': 1, 'DiT_Real': 0, 'pixart_Fake': 1, 'pixart_Real': 0, 'SiT_Fake': 1, 'SiT_Real': 0, 'sd1.5_Fake': 1, 'sd1.5_Real': 0, 'sd2.1_Fake': 1, 'sd2.1_Real': 0, 'VQGAN_Fake': 1, 'VQGAN_Real': 0, 'rddm_Fake': 1, 'rddm_Real': 0, 'stargan_Fake': 1, 'stargan_Real': 0, 'starganv2_Fake': 1, 'starganv2_Real': 0, 'styleclip_Fake': 1, 'styleclip_Real': 0, 'deepfacelab_Fake': 1, 'deepfacelab_Real': 0, 'CollabDiff_Fake': 1, 'CollabDiff_Real': 0, 'adm_Fake': 1, 'adm_Real': 0, 'biggan_Fake': 2, 'biggan_Real': 0, 'glide_Fake': 3, 'glide_Real': 0, 'midjourney_Fake': 4, 'midjourney_Real': 0, 'sdv4_Fake': 5, 'sdv4_Real': 0, 'sdv5_Fake': 6, 'sdv5_Real': 0, 'vqdm_Fake': 7, 'vqdm_Real': 0, 'wukong_Fake': 8, 'wukong_Real': 0, 'GPA_fake': 1, 'GPA_real': 0, 'Chameleon_Fake': 1, 'Chameleon_Real': 0}
+local_rank: 0
+ddp: False
+
+2025-09-21 12:14:48,070 - INFO - ===> Epoch[0] start!
+2025-09-21 12:14:48,118 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-14-20/train/UADFV_FairFD_Indian,UADFV_HAV-DF_train/data_dict_train.pickle
+2025-09-21 12:14:53,353 - INFO - Iter: 0    training-loss, overall: 0.39225998520851135    training-loss, real_loss: 0.912429928779602    training-loss, fake_loss: 0.27222082018852234    
+2025-09-21 12:14:53,388 - INFO - Iter: 0    training-metric, acc: 0.8333333333333334    training-metric, auc: 0.8062678062678063    training-metric, eer: 0.3333333333333333    training-metric, ap: 0.9507902643662214    
+2025-09-21 12:19:11,458 - INFO - Save log to ./zhiyuanyan/logs/benchv2/icml25/release
+2025-09-21 12:19:11,459 - INFO - --------------- Configuration ---------------
+2025-09-21 12:19:11,460 - INFO - Parameters: 
+log_dir: ./zhiyuanyan/logs/benchv2/icml25/release
+pretrained: no need to provide this for the effort model
+model_name: effort
+backbone_name: vit
+pretrained_weights: ../ckpts/effort_clip_L14_trainOn_FaceForensic.pth
+backbone_config: {'mode': 'original', 'num_classes': 2, 'inc': 3, 'dropout': False}
+all_dataset: ['FaceForensics++', 'FF-F2F', 'FF-DF', 'FF-FS', 'FF-NT', 'FaceShifter', 'DeepFakeDetection', 'Celeb-DF-v1', 'Celeb-DF-v2', 'DFDCP', 'DFDC', 'DeeperForensics-1.0', 'UADFV', 'UADFV_HAV-DF_train', 'UADFV_HAV-DF_test', 'UADFV_FairFD_Indian']
+train_dataset: ['UADFV_FairFD_Indian', 'UADFV_HAV-DF_train']
+test_dataset: ['UADFV_HAV-DF_test']
+compression: c23
+train_batchSize: 40
+test_batchSize: 40
+workers: 8
+frame_num: {'train': 8, 'test': 8}
+resolution: 224
+with_mask: False
+with_landmark: False
+use_data_augmentation: True
+data_aug: {'flip_prob': 0.5, 'rotate_prob': 0.5, 'rotate_limit': [-10, 10], 'blur_prob': 0.5, 'blur_limit': [3, 7], 'brightness_prob': 0.5, 'brightness_limit': [-0.1, 0.1], 'contrast_limit': [-0.1, 0.1], 'quality_lower': 40, 'quality_upper': 100}
+mean: [0.48145466, 0.4578275, 0.40821073]
+std: [0.26862954, 0.26130258, 0.27577711]
+optimizer: {'type': 'adam', 'adam': {'lr': 0.0002, 'beta1': 0.9, 'beta2': 0.999, 'eps': 1e-08, 'weight_decay': 0.0005, 'amsgrad': False}, 'sgd': {'lr': 0.0002, 'momentum': 0.9, 'weight_decay': 0.0005}}
+lr_scheduler: None
+nEpochs: 1000
+start_epoch: 0
+save_epoch: 1
+rec_iter: 100
+logdir: ./logs
+manualSeed: 1024
+save_ckpt: True
+save_feat: True
+loss_func: cross_entropy
+losstype: None
+metric_scoring: auc
+ngpu: 1
+cuda: True
+cudnn: True
+save_avg: True
+mode: train
+lmdb: False
+dry_run: False
+dataset_root_rgb: ./datasets
+lmdb_dir: I:\transform_2_lmdb
+dataset_json_folder: ./preprocessing/dataset_json_train
+SWA: False
+label_dict: {'DFD_fake': 1, 'DFD_real': 0, 'FF-SH': 1, 'FF-F2F': 1, 'FF-DF': 1, 'FF-FS': 1, 'FF-NT': 1, 'FF-FH': 1, 'FF-real': 0, 'CelebDFv1_real': 0, 'CelebDFv1_fake': 1, 'CelebDFv2_real': 0, 'CelebDFv2_fake': 1, 'DFDCP_Real': 0, 'DFDCP_FakeA': 1, 'DFDCP_FakeB': 1, 'DFDC_Fake': 1, 'DFDC_Real': 0, 'DF_fake': 1, 'DF_real': 0, 'UADFV_Fake': 1, 'UADFV_Real': 0, 'roop_Real': 0, 'roop_Fake': 1, 'FSAll_Fake': 1, 'FSAll_Real': 0, 'FRAll_Fake': 1, 'FRAll_Real': 0, 'EFSAll_Fake': 1, 'EFSAll_Real': 0, 'DF40_train_Fake': 1, 'DF40_train_Real': 0, 'e4s_Fake': 1, 'e4s_Real': 0, 'danet_Fake': 1, 'danet_Real': 0, 'fomm_Fake': 1, 'fomm_Real': 0, 'Collaborative_Diffusion_Fake': 1, 'Collaborative_Diffusion_Real': 0, 'e4e_Fake': 1, 'e4e_Real': 0, 'hyperreenact_Fake': 1, 'hyperreenact_Real': 0, 'MRAA_Fake': 1, 'MRAA_Real': 0, 'one_shot_free_Fake': 1, 'one_shot_free_Real': 0, 'pirender_Fake': 1, 'pirender_Real': 0, 'tpsm_Fake': 1, 'tpsm_Real': 0, 'facedancer_Fake': 1, 'facedancer_Real': 0, 'facevid2vid_Fake': 1, 'facevid2vid_Real': 0, 'mcnet_Fake': 1, 'mcnet_Real': 0, 'mraa_Fake': 1, 'mraa_Real': 0, 'fsgan_Fake': 1, 'fsgan_Real': 0, 'lia_Fake': 1, 'lia_Real': 0, 'inswap_Fake': 1, 'inswap_Real': 0, 'simswap_Fake': 1, 'simswap_Real': 0, 'sadtalker_Fake': 1, 'sadtalker_Real': 0, 'wav2lip_Fake': 1, 'wav2lip_Real': 0, 'uniface_Fake': 1, 'uniface_Real': 0, 'blendface_Fake': 1, 'blendface_Real': 0, 'mobileswap_Fake': 1, 'mobileswap_Real': 0, 'faceswap_Fake': 1, 'faceswap_Real': 0, 'dalle2_face_Fake': 1, 'dalle2_face_Real': 0, 'MidJourney_Fake': 1, 'MidJourney_Real': 0, 'heygen_Fake': 1, 'heygen_Real': 0, 'whichisreal_Fake': 1, 'whichisreal_Real': 0, 'StyleGAN2_Fake': 1, 'StyleGAN2_Real': 0, 'StyleGAN3_Fake': 1, 'StyleGAN3_Real': 0, 'StyleGANXL_Fake': 1, 'StyleGANXL_Real': 0, 'ddim_Fake': 1, 'ddim_Real': 0, 'DiT_Fake': 1, 'DiT_Real': 0, 'pixart_Fake': 1, 'pixart_Real': 0, 'SiT_Fake': 1, 'SiT_Real': 0, 'sd1.5_Fake': 1, 'sd1.5_Real': 0, 'sd2.1_Fake': 1, 'sd2.1_Real': 0, 'VQGAN_Fake': 1, 'VQGAN_Real': 0, 'rddm_Fake': 1, 'rddm_Real': 0, 'stargan_Fake': 1, 'stargan_Real': 0, 'starganv2_Fake': 1, 'starganv2_Real': 0, 'styleclip_Fake': 1, 'styleclip_Real': 0, 'deepfacelab_Fake': 1, 'deepfacelab_Real': 0, 'CollabDiff_Fake': 1, 'CollabDiff_Real': 0, 'adm_Fake': 1, 'adm_Real': 0, 'biggan_Fake': 2, 'biggan_Real': 0, 'glide_Fake': 3, 'glide_Real': 0, 'midjourney_Fake': 4, 'midjourney_Real': 0, 'sdv4_Fake': 5, 'sdv4_Real': 0, 'sdv5_Fake': 6, 'sdv5_Real': 0, 'vqdm_Fake': 7, 'vqdm_Real': 0, 'wukong_Fake': 8, 'wukong_Real': 0, 'GPA_fake': 1, 'GPA_real': 0, 'Chameleon_Fake': 1, 'Chameleon_Real': 0}
+local_rank: 0
+ddp: False
+
+2025-09-21 12:19:35,689 - INFO - ===> Epoch[0] start!
+2025-09-21 12:19:35,737 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/train/UADFV_FairFD_Indian,UADFV_HAV-DF_train/data_dict_train.pickle
+2025-09-21 12:19:40,207 - INFO - Iter: 0    training-loss, overall: 0.42996758222579956    training-loss, real_loss: 0.912429928779602    training-loss, fake_loss: 0.2898978590965271    
+2025-09-21 12:19:40,236 - INFO - Iter: 0    training-metric, acc: 0.825    training-metric, auc: 0.7885304659498208    training-metric, eer: 0.3333333333333333    training-metric, ap: 0.9323778634930233    
+2025-09-21 12:30:10,538 - INFO - Iter: 300    training-loss, overall: 0.2085043042898178    training-loss, real_loss: 0.7848718166351318    training-loss, fake_loss: 0.10397154837846756    
+2025-09-21 12:30:10,539 - INFO - Iter: 300    training-metric, acc: 0.909666666666667    training-metric, auc: 0.9398051007808343    training-metric, eer: 0.11600204425204429    training-metric, ap: 0.9886531924654114    
+2025-09-21 12:40:40,675 - INFO - Iter: 600    training-loss, overall: 0.13170155882835388    training-loss, real_loss: 0.48554474115371704    training-loss, fake_loss: 0.06921488791704178    
+2025-09-21 12:40:40,675 - INFO - Iter: 600    training-metric, acc: 0.9437499999999994    training-metric, auc: 0.9795521391447544    training-metric, eer: 0.04584105508018548    training-metric, ap: 0.9963736226128886    
+2025-09-21 12:51:10,912 - INFO - Iter: 900    training-loss, overall: 0.11277426779270172    training-loss, real_loss: 0.39147424697875977    training-loss, fake_loss: 0.06209642440080643    
+2025-09-21 12:51:10,913 - INFO - Iter: 900    training-metric, acc: 0.9524999999999995    training-metric, auc: 0.9856310585468195    training-metric, eer: 0.029013619231010538    training-metric, ap: 0.9973934405355389    
+2025-09-21 12:52:35,184 - INFO - ===> Test start!
+2025-09-21 12:52:35,195 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-21 12:54:39,395 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/ckpt_best.pth, current ckpt is 0+940
+2025-09-21 12:54:39,400 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/metric_dict_best.pickle
+2025-09-21 12:54:39,441 - INFO - dataset: UADFV_HAV-DF_test    step: 940    testing-loss, overall: 0.39853721857070923    testing-loss, real_loss: 0.5956991314888    testing-loss, fake_loss: 0.32041114568710327    
+2025-09-21 12:54:39,506 - INFO - dataset: UADFV_HAV-DF_test    step: 940    testing-metric, acc: 0.8048469387755102    testing-metric, auc: 0.8885387462963367    testing-metric, eer: 0.19101123595505617    testing-metric, ap: 0.945618649389632    testing-metric, video_auc: 0.9273618538324421    testing-metric, video_eer: 0.17647058823529413    testing-metric, video_acc: 0.84    testing-metric, acc_real:0.8164794007490637; acc_fake:0.7988394584139265
+2025-09-21 12:54:44,607 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/ckpt_best.pth, current ckpt is 0+940
+2025-09-21 12:54:46,442 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/metric_dict_best.pickle
+2025-09-21 12:54:46,485 - INFO - dataset: avg    step: 940    testing-metric, acc: 0.8048469387755102    testing-metric, auc: 0.8885387462963367    testing-metric, eer: 0.19101123595505617    testing-metric, ap: 0.945618649389632    testing-metric, video_auc: 0.9273618538324421    
+2025-09-21 12:54:46,485 - INFO - ===> Test Done!
+2025-09-21 13:03:52,806 - INFO - Iter: 1200    training-loss, overall: 0.10267215222120285    training-loss, real_loss: 0.3405655026435852    training-loss, fake_loss: 0.06009180098772049    
+2025-09-21 13:03:52,806 - INFO - Iter: 1200    training-metric, acc: 0.9569166666666659    training-metric, auc: 0.9875235941362254    training-metric, eer: 0.01988395863395863    training-metric, ap: 0.9977499857272866    
+2025-09-21 13:14:22,903 - INFO - Iter: 1500    training-loss, overall: 0.09026139974594116    training-loss, real_loss: 0.3028126060962677    training-loss, fake_loss: 0.05332903191447258    
+2025-09-21 13:14:22,904 - INFO - Iter: 1500    training-metric, acc: 0.9619999999999997    training-metric, auc: 0.9904061661419604    training-metric, eer: 0.01606228956228957    training-metric, ap: 0.998376348482977    
+2025-09-21 13:24:53,099 - INFO - Iter: 1800    training-loss, overall: 0.08589272946119308    training-loss, real_loss: 0.2835458517074585    training-loss, fake_loss: 0.05061320215463638    
+2025-09-21 13:24:53,100 - INFO - Iter: 1800    training-metric, acc: 0.9636666666666655    training-metric, auc: 0.9913535916275993    training-metric, eer: 0.01318001443001443    training-metric, ap: 0.9983762907319461    
+2025-09-21 13:27:42,735 - INFO - ===> Test start!
+2025-09-21 13:27:42,742 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-21 13:28:02,982 - INFO - dataset: UADFV_HAV-DF_test    step: 1881    testing-loss, overall: 0.42940106987953186    testing-loss, real_loss: 0.5477100014686584    testing-loss, fake_loss: 0.37320318818092346    
+2025-09-21 13:28:02,984 - INFO - dataset: UADFV_HAV-DF_test    step: 1881    testing-metric, acc: 0.7602040816326531    testing-metric, auc: 0.8492962133889698    testing-metric, eer: 0.22846441947565543    testing-metric, ap: 0.9307254323357336    testing-metric, video_auc: 0.8703208556149732    testing-metric, video_eer: 0.23529411764705882    testing-metric, video_acc: 0.78    testing-metric, acc_real:0.7677902621722846; acc_fake:0.7562862669245648
+2025-09-21 13:28:02,984 - INFO - dataset: avg    step: 1881    testing-metric, acc: 0.7602040816326531    testing-metric, auc: 0.8492962133889698    testing-metric, eer: 0.22846441947565543    testing-metric, ap: 0.9307254323357336    testing-metric, video_auc: 0.8703208556149732    
+2025-09-21 13:28:02,985 - INFO - ===> Test Done!
+2025-09-21 13:28:03,401 - INFO - ===> Epoch[0] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV_HAV-DF_test:  auc=0.8885387462963367 | 
+============================================================================================= 
+================================== Average best metric ====================================== 
+| avg auc: 0.8885387462963367 | 
+| UADFV_HAV-DF_test: 0.8885387462963367 | 
+=============================================================================================!
+2025-09-21 13:28:03,402 - INFO - ===> Epoch[1] start!
+2025-09-21 13:28:03,456 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/train/UADFV_FairFD_Indian,UADFV_HAV-DF_train/data_dict_train.pickle
+2025-09-21 13:28:07,266 - INFO - Iter: 1882    training-loss, overall: 0.13420656323432922    training-loss, real_loss: 0.33524876832962036    training-loss, fake_loss: 0.06719247251749039    
+2025-09-21 13:28:07,267 - INFO - Iter: 1882    training-metric, acc: 0.925    training-metric, auc: 0.9833333333333334    training-metric, eer: 0.1    training-metric, ap: 0.9946167037449017    
+2025-09-21 13:38:37,372 - INFO - Iter: 2182    training-loss, overall: 0.08627092093229294    training-loss, real_loss: 0.25579485297203064    training-loss, fake_loss: 0.05469489470124245    
+2025-09-21 13:38:37,372 - INFO - Iter: 2182    training-metric, acc: 0.9626666666666656    training-metric, auc: 0.9916339587060613    training-metric, eer: 0.00928054353054353    training-metric, ap: 0.9985308835079597    
+2025-09-21 13:49:07,449 - INFO - Iter: 2482    training-loss, overall: 0.08243492990732193    training-loss, real_loss: 0.2557413876056671    training-loss, fake_loss: 0.050203751772642136    
+2025-09-21 13:49:07,450 - INFO - Iter: 2482    training-metric, acc: 0.9640833333333328    training-metric, auc: 0.9919986798608098    training-metric, eer: 0.010456830206830204    training-metric, ap: 0.9985636649492329    
+2025-09-21 13:59:37,484 - INFO - Iter: 2782    training-loss, overall: 0.0780462846159935    training-loss, real_loss: 0.2410428375005722    training-loss, fake_loss: 0.04858868569135666    
+2025-09-21 13:59:37,484 - INFO - Iter: 2782    training-metric, acc: 0.9665833333333321    training-metric, auc: 0.9934694740629338    training-metric, eer: 0.010788773120987884    training-metric, ap: 0.9987542696165712    
+2025-09-21 14:01:01,717 - INFO - ===> Test start!
+2025-09-21 14:01:01,725 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-21 14:01:27,248 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/ckpt_best.pth, current ckpt is 1+940
+2025-09-21 14:01:27,255 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/metric_dict_best.pickle
+2025-09-21 14:01:27,257 - INFO - dataset: UADFV_HAV-DF_test    step: 2822    testing-loss, overall: 0.35613805055618286    testing-loss, real_loss: 0.5594131946563721    testing-loss, fake_loss: 0.2560911178588867    
+2025-09-21 14:01:27,258 - INFO - dataset: UADFV_HAV-DF_test    step: 2822    testing-metric, acc: 0.8329081632653061    testing-metric, auc: 0.914487934569216    testing-metric, eer: 0.1760299625468165    testing-metric, ap: 0.9588887976208198    testing-metric, video_auc: 0.9616755793226381    testing-metric, video_eer: 0.11764705882352941    testing-metric, video_acc: 0.87    testing-metric, acc_real:0.8277153558052435; acc_fake:0.8355899419729207
+2025-09-21 14:01:33,939 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/ckpt_best.pth, current ckpt is 1+940
+2025-09-21 14:01:34,144 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/metric_dict_best.pickle
+2025-09-21 14:01:34,144 - INFO - dataset: avg    step: 2822    testing-metric, acc: 0.8329081632653061    testing-metric, auc: 0.914487934569216    testing-metric, eer: 0.1760299625468165    testing-metric, ap: 0.9588887976208198    testing-metric, video_auc: 0.9616755793226381    
+2025-09-21 14:01:34,145 - INFO - ===> Test Done!
+2025-09-21 14:10:40,091 - INFO - Iter: 3082    training-loss, overall: 0.07811818271875381    training-loss, real_loss: 0.2463795244693756    training-loss, fake_loss: 0.04676980525255203    
+2025-09-21 14:10:40,092 - INFO - Iter: 3082    training-metric, acc: 0.9667499999999988    training-metric, auc: 0.9932883885461359    training-metric, eer: 0.010936868686868688    training-metric, ap: 0.9987439275909238    
+2025-09-21 14:21:10,269 - INFO - Iter: 3382    training-loss, overall: 0.07714967429637909    training-loss, real_loss: 0.2448139488697052    training-loss, fake_loss: 0.04778067767620087    
+2025-09-21 14:21:10,270 - INFO - Iter: 3382    training-metric, acc: 0.9685833333333324    training-metric, auc: 0.9926612734170815    training-metric, eer: 0.010792568542568541    training-metric, ap: 0.9986855262552562    
+2025-09-21 14:31:40,403 - INFO - Iter: 3682    training-loss, overall: 0.07747090607881546    training-loss, real_loss: 0.2493947446346283    training-loss, fake_loss: 0.0467643178999424    
+2025-09-21 14:31:40,403 - INFO - Iter: 3682    training-metric, acc: 0.9684166666666656    training-metric, auc: 0.9930513107092566    training-metric, eer: 0.01080843162782962    training-metric, ap: 0.9987821273487955    
+2025-09-21 14:34:29,835 - INFO - ===> Test start!
+2025-09-21 14:34:29,843 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-21 14:35:18,353 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/ckpt_best.pth, current ckpt is 1+1881
+2025-09-21 14:35:18,464 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/metric_dict_best.pickle
+2025-09-21 14:35:18,466 - INFO - dataset: UADFV_HAV-DF_test    step: 3763    testing-loss, overall: 0.37211450934410095    testing-loss, real_loss: 0.30864888429641724    testing-loss, fake_loss: 0.40531665086746216    
+2025-09-21 14:35:18,467 - INFO - dataset: UADFV_HAV-DF_test    step: 3763    testing-metric, acc: 0.8278061224489796    testing-metric, auc: 0.9229203341084766    testing-metric, eer: 0.15355805243445692    testing-metric, ap: 0.9641624804625277    testing-metric, video_auc: 0.9621212121212122    testing-metric, video_eer: 0.058823529411764705    testing-metric, video_acc: 0.84    testing-metric, acc_real:0.8277153558052435; acc_fake:0.8278529980657641
+2025-09-21 14:35:57,551 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/ckpt_best.pth, current ckpt is 1+1881
+2025-09-21 14:35:57,640 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/metric_dict_best.pickle
+2025-09-21 14:35:57,641 - INFO - dataset: avg    step: 3763    testing-metric, acc: 0.8278061224489796    testing-metric, auc: 0.9229203341084766    testing-metric, eer: 0.15355805243445692    testing-metric, ap: 0.9641624804625277    testing-metric, video_auc: 0.9621212121212122    
+2025-09-21 14:35:57,641 - INFO - ===> Test Done!
+2025-09-21 14:35:57,884 - INFO - ===> Epoch[1] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV_HAV-DF_test:  auc=0.9229203341084766 | 
+============================================================================================= 
+================================== Average best metric ====================================== 
+| avg auc: 0.9229203341084766 | 
+| UADFV_HAV-DF_test: 0.9229203341084766 | 
+=============================================================================================!
+2025-09-21 14:35:57,885 - INFO - ===> Epoch[2] start!
+2025-09-21 14:35:57,950 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/train/UADFV_FairFD_Indian,UADFV_HAV-DF_train/data_dict_train.pickle
+2025-09-21 14:36:03,077 - INFO - Iter: 3764    training-loss, overall: 0.04291709512472153    training-loss, real_loss: 0.1588945835828781    training-loss, fake_loss: 0.009246218018233776    
+2025-09-21 14:36:03,078 - INFO - Iter: 3764    training-metric, acc: 1.0    training-metric, auc: 1.0    training-metric, eer: 0.0    training-metric, ap: 1.0    
+2025-09-21 14:46:33,576 - INFO - Iter: 4064    training-loss, overall: 0.07458209246397018    training-loss, real_loss: 0.22065936028957367    training-loss, fake_loss: 0.04660242050886154    
+2025-09-21 14:46:33,577 - INFO - Iter: 4064    training-metric, acc: 0.9675833333333324    training-metric, auc: 0.9939638864521343    training-metric, eer: 0.0072738095238095235    training-metric, ap: 0.9989466547102164    
+2025-09-21 14:57:03,751 - INFO - Iter: 4364    training-loss, overall: 0.07105676084756851    training-loss, real_loss: 0.21337367594242096    training-loss, fake_loss: 0.043685562908649445    
+2025-09-21 14:57:03,752 - INFO - Iter: 4364    training-metric, acc: 0.9710833333333325    training-metric, auc: 0.9944404916690235    training-metric, eer: 0.008070226070226071    training-metric, ap: 0.9990598943425406    
+2025-09-21 15:07:34,169 - INFO - Iter: 4664    training-loss, overall: 0.07181350886821747    training-loss, real_loss: 0.21687103807926178    training-loss, fake_loss: 0.04495316743850708    
+2025-09-21 15:07:34,170 - INFO - Iter: 4664    training-metric, acc: 0.9687499999999989    training-metric, auc: 0.994411976608877    training-metric, eer: 0.006716931216931217    training-metric, ap: 0.9990325967117328    
+2025-09-21 15:08:58,420 - INFO - ===> Test start!
+2025-09-21 15:08:58,428 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-21 15:09:23,295 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/ckpt_best.pth, current ckpt is 2+940
+2025-09-21 15:09:25,826 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/metric_dict_best.pickle
+2025-09-21 15:09:25,828 - INFO - dataset: UADFV_HAV-DF_test    step: 4704    testing-loss, overall: 0.3129963278770447    testing-loss, real_loss: 0.3367098271846771    testing-loss, fake_loss: 0.30228132009506226    
+2025-09-21 15:09:25,830 - INFO - dataset: UADFV_HAV-DF_test    step: 4704    testing-metric, acc: 0.8622448979591837    testing-metric, auc: 0.9454574431863457    testing-metric, eer: 0.12359550561797752    testing-metric, ap: 0.9738772636406197    testing-metric, video_auc: 0.9772727272727272    testing-metric, video_eer: 0.08823529411764706    testing-metric, video_acc: 0.89    testing-metric, acc_real:0.8576779026217228; acc_fake:0.8646034816247582
+2025-09-21 15:09:30,423 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/ckpt_best.pth, current ckpt is 2+940
+2025-09-21 15:09:30,740 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/metric_dict_best.pickle
+2025-09-21 15:09:30,741 - INFO - dataset: avg    step: 4704    testing-metric, acc: 0.8622448979591837    testing-metric, auc: 0.9454574431863457    testing-metric, eer: 0.12359550561797752    testing-metric, ap: 0.9738772636406197    testing-metric, video_auc: 0.9772727272727272    
+2025-09-21 15:09:30,741 - INFO - ===> Test Done!
+2025-09-21 15:18:36,876 - INFO - Iter: 4964    training-loss, overall: 0.07491691410541534    training-loss, real_loss: 0.22378024458885193    training-loss, fake_loss: 0.04807285591959953    
+2025-09-21 15:18:36,876 - INFO - Iter: 4964    training-metric, acc: 0.969249999999999    training-metric, auc: 0.9933068797973997    training-metric, eer: 0.008252645502645503    training-metric, ap: 0.9988280242058808    
+2025-09-21 15:29:07,330 - INFO - Iter: 5264    training-loss, overall: 0.06870981305837631    training-loss, real_loss: 0.21475736796855927    training-loss, fake_loss: 0.04189828410744667    
+2025-09-21 15:29:07,330 - INFO - Iter: 5264    training-metric, acc: 0.972249999999999    training-metric, auc: 0.9943766423724321    training-metric, eer: 0.007402236652236652    training-metric, ap: 0.9990459709005787    
+2025-09-21 15:39:37,809 - INFO - Iter: 5564    training-loss, overall: 0.0667114332318306    training-loss, real_loss: 0.19927877187728882    training-loss, fake_loss: 0.04164201021194458    
+2025-09-21 15:39:37,810 - INFO - Iter: 5564    training-metric, acc: 0.9724166666666664    training-metric, auc: 0.9950591956649509    training-metric, eer: 0.005308321308321308    training-metric, ap: 0.9991728006746242    
+2025-09-21 15:42:27,297 - INFO - ===> Test start!
+2025-09-21 15:42:27,304 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-21 15:42:47,679 - INFO - dataset: UADFV_HAV-DF_test    step: 5645    testing-loss, overall: 0.31789347529411316    testing-loss, real_loss: 0.35253697633743286    testing-loss, fake_loss: 0.3001532256603241    
+2025-09-21 15:42:47,680 - INFO - dataset: UADFV_HAV-DF_test    step: 5645    testing-metric, acc: 0.8558673469387755    testing-metric, auc: 0.9440230659451314    testing-metric, eer: 0.13108614232209737    testing-metric, ap: 0.9726371818831391    testing-metric, video_auc: 0.982620320855615    testing-metric, video_eer: 0.08823529411764706    testing-metric, video_acc: 0.9    testing-metric, acc_real:0.8389513108614233; acc_fake:0.8646034816247582
+2025-09-21 15:42:47,681 - INFO - dataset: avg    step: 5645    testing-metric, acc: 0.8558673469387755    testing-metric, auc: 0.9440230659451314    testing-metric, eer: 0.13108614232209737    testing-metric, ap: 0.9726371818831391    testing-metric, video_auc: 0.982620320855615    
+2025-09-21 15:42:47,681 - INFO - ===> Test Done!
+2025-09-21 15:42:47,918 - INFO - ===> Epoch[2] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV_HAV-DF_test:  auc=0.9454574431863457 | 
+============================================================================================= 
+================================== Average best metric ====================================== 
+| avg auc: 0.9454574431863457 | 
+| UADFV_HAV-DF_test: 0.9454574431863457 | 
+=============================================================================================!
+2025-09-21 15:42:47,920 - INFO - ===> Epoch[3] start!
+2025-09-21 15:42:47,974 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/train/UADFV_FairFD_Indian,UADFV_HAV-DF_train/data_dict_train.pickle
+2025-09-21 15:42:51,975 - INFO - Iter: 5646    training-loss, overall: 0.03429032489657402    training-loss, real_loss: 0.18634344637393951    training-loss, fake_loss: 0.012568454258143902    
+2025-09-21 15:42:51,976 - INFO - Iter: 5646    training-metric, acc: 1.0    training-metric, auc: 1.0    training-metric, eer: 0.0    training-metric, ap: 1.0    
+2025-09-21 15:53:22,121 - INFO - Iter: 5946    training-loss, overall: 0.07029882073402405    training-loss, real_loss: 0.21746188402175903    training-loss, fake_loss: 0.043774351477622986    
+2025-09-21 15:53:22,122 - INFO - Iter: 5946    training-metric, acc: 0.9699999999999985    training-metric, auc: 0.9949252174401079    training-metric, eer: 0.005492183742183743    training-metric, ap: 0.9990927448426687    
+2025-09-21 16:03:52,558 - INFO - Iter: 6246    training-loss, overall: 0.06892156600952148    training-loss, real_loss: 0.21404264867305756    training-loss, fake_loss: 0.043026916682720184    
+2025-09-21 16:03:52,559 - INFO - Iter: 6246    training-metric, acc: 0.9714166666666657    training-metric, auc: 0.9947706155504661    training-metric, eer: 0.0095291182247704    training-metric, ap: 0.9990583822421357    
+2025-09-21 16:14:22,933 - INFO - Iter: 6546    training-loss, overall: 0.06528610736131668    training-loss, real_loss: 0.20529067516326904    training-loss, fake_loss: 0.040307432413101196    
+2025-09-21 16:14:22,934 - INFO - Iter: 6546    training-metric, acc: 0.9735833333333329    training-metric, auc: 0.9951070276855092    training-metric, eer: 0.006923520923520923    training-metric, ap: 0.9991021286001279    
+2025-09-21 16:15:47,286 - INFO - ===> Test start!
+2025-09-21 16:15:47,310 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-21 16:16:12,061 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/ckpt_best.pth, current ckpt is 3+940
+2025-09-21 16:16:12,067 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/metric_dict_best.pickle
+2025-09-21 16:16:12,069 - INFO - dataset: UADFV_HAV-DF_test    step: 6586    testing-loss, overall: 0.30154362320899963    testing-loss, real_loss: 0.47741594910621643    testing-loss, fake_loss: 0.2158433198928833    
+2025-09-21 16:16:12,069 - INFO - dataset: UADFV_HAV-DF_test    step: 6586    testing-metric, acc: 0.8775510204081632    testing-metric, auc: 0.9457254833778859    testing-metric, eer: 0.13108614232209737    testing-metric, ap: 0.9722873717835786    testing-metric, video_auc: 0.9861853832442068    testing-metric, video_eer: 0.08823529411764706    testing-metric, video_acc: 0.94    testing-metric, acc_real:0.8651685393258427; acc_fake:0.8839458413926499
+2025-09-21 16:16:17,263 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/ckpt_best.pth, current ckpt is 3+940
+2025-09-21 16:16:19,290 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/metric_dict_best.pickle
+2025-09-21 16:16:19,290 - INFO - dataset: avg    step: 6586    testing-metric, acc: 0.8775510204081632    testing-metric, auc: 0.9457254833778859    testing-metric, eer: 0.13108614232209737    testing-metric, ap: 0.9722873717835786    testing-metric, video_auc: 0.9861853832442068    
+2025-09-21 16:16:19,291 - INFO - ===> Test Done!
+2025-09-21 16:25:25,539 - INFO - Iter: 6846    training-loss, overall: 0.06764683872461319    training-loss, real_loss: 0.20869827270507812    training-loss, fake_loss: 0.04104548320174217    
+2025-09-21 16:25:25,540 - INFO - Iter: 6846    training-metric, acc: 0.9722499999999993    training-metric, auc: 0.9945540783248337    training-metric, eer: 0.009341510341510342    training-metric, ap: 0.9990735641207942    
+2025-09-21 16:35:55,953 - INFO - Iter: 7146    training-loss, overall: 0.06702541559934616    training-loss, real_loss: 0.1990387737751007    training-loss, fake_loss: 0.04278465732932091    
+2025-09-21 16:35:55,954 - INFO - Iter: 7146    training-metric, acc: 0.972833333333333    training-metric, auc: 0.9949194886910626    training-metric, eer: 0.008576839826839825    training-metric, ap: 0.999135168367702    
+2025-09-21 16:46:26,294 - INFO - Iter: 7446    training-loss, overall: 0.06146027520298958    training-loss, real_loss: 0.18521210551261902    training-loss, fake_loss: 0.03860325366258621    
+2025-09-21 16:46:26,295 - INFO - Iter: 7446    training-metric, acc: 0.9746666666666666    training-metric, auc: 0.995620444529571    training-metric, eer: 0.0052964165464165465    training-metric, ap: 0.9992396189538323    
+2025-09-21 16:49:15,802 - INFO - ===> Test start!
+2025-09-21 16:49:15,810 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-21 16:49:40,914 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/ckpt_best.pth, current ckpt is 3+1881
+2025-09-21 16:49:40,920 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/metric_dict_best.pickle
+2025-09-21 16:49:40,921 - INFO - dataset: UADFV_HAV-DF_test    step: 7527    testing-loss, overall: 0.2912147045135498    testing-loss, real_loss: 0.41597461700439453    testing-loss, fake_loss: 0.2295040339231491    
+2025-09-21 16:49:40,922 - INFO - dataset: UADFV_HAV-DF_test    step: 7527    testing-metric, acc: 0.8864795918367347    testing-metric, auc: 0.9475003441056513    testing-metric, eer: 0.1198501872659176    testing-metric, ap: 0.9744257424879775    testing-metric, video_auc: 0.981729055258467    testing-metric, video_eer: 0.08823529411764706    testing-metric, video_acc: 0.93    testing-metric, acc_real:0.8726591760299626; acc_fake:0.8936170212765957
+2025-09-21 16:49:46,930 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/ckpt_best.pth, current ckpt is 3+1881
+2025-09-21 16:49:46,935 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/metric_dict_best.pickle
+2025-09-21 16:49:46,935 - INFO - dataset: avg    step: 7527    testing-metric, acc: 0.8864795918367347    testing-metric, auc: 0.9475003441056513    testing-metric, eer: 0.1198501872659176    testing-metric, ap: 0.9744257424879775    testing-metric, video_auc: 0.981729055258467    
+2025-09-21 16:49:46,936 - INFO - ===> Test Done!
+2025-09-21 16:49:47,160 - INFO - ===> Epoch[3] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV_HAV-DF_test:  auc=0.9475003441056513 | 
+============================================================================================= 
+================================== Average best metric ====================================== 
+| avg auc: 0.9475003441056513 | 
+| UADFV_HAV-DF_test: 0.9475003441056513 | 
+=============================================================================================!
+2025-09-21 16:49:47,161 - INFO - ===> Epoch[4] start!
+2025-09-21 16:49:47,218 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/train/UADFV_FairFD_Indian,UADFV_HAV-DF_train/data_dict_train.pickle
+2025-09-21 16:49:52,664 - INFO - Iter: 7528    training-loss, overall: 0.04270134121179581    training-loss, real_loss: 0.3289620280265808    training-loss, fake_loss: 0.0018069576472043991    
+2025-09-21 16:49:52,665 - INFO - Iter: 7528    training-metric, acc: 0.975    training-metric, auc: 1.0    training-metric, eer: 0.0    training-metric, ap: 1.0    
+2025-09-21 17:00:23,223 - INFO - Iter: 7828    training-loss, overall: 0.06251551955938339    training-loss, real_loss: 0.18765100836753845    training-loss, fake_loss: 0.03932714834809303    
+2025-09-21 17:00:23,223 - INFO - Iter: 7828    training-metric, acc: 0.9749999999999992    training-metric, auc: 0.9955633185519805    training-metric, eer: 0.005475925041142433    training-metric, ap: 0.9991612929921897    
+2025-09-21 17:10:53,599 - INFO - Iter: 8128    training-loss, overall: 0.0643220916390419    training-loss, real_loss: 0.1824515461921692    training-loss, fake_loss: 0.041020672768354416    
+2025-09-21 17:10:53,600 - INFO - Iter: 8128    training-metric, acc: 0.9732499999999984    training-metric, auc: 0.9951909091637352    training-metric, eer: 0.006285772393154942    training-metric, ap: 0.9991210412919529    
+2025-09-21 17:21:23,896 - INFO - Iter: 8428    training-loss, overall: 0.058461446315050125    training-loss, real_loss: 0.16959108412265778    training-loss, fake_loss: 0.03592769429087639    
+2025-09-21 17:21:23,897 - INFO - Iter: 8428    training-metric, acc: 0.9748333333333321    training-metric, auc: 0.9959819704984623    training-metric, eer: 0.004703703703703702    training-metric, ap: 0.9992623173982099    
+2025-09-21 17:22:48,248 - INFO - ===> Test start!
+2025-09-21 17:22:48,272 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-21 17:23:13,502 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/ckpt_best.pth, current ckpt is 4+940
+2025-09-21 17:23:14,888 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/metric_dict_best.pickle
+2025-09-21 17:23:14,890 - INFO - dataset: UADFV_HAV-DF_test    step: 8468    testing-loss, overall: 0.286325603723526    testing-loss, real_loss: 0.5484437942504883    testing-loss, fake_loss: 0.15270309150218964    
+2025-09-21 17:23:14,891 - INFO - dataset: UADFV_HAV-DF_test    step: 8468    testing-metric, acc: 0.8801020408163265    testing-metric, auc: 0.9583306167097706    testing-metric, eer: 0.10486891385767791    testing-metric, ap: 0.979336676893578    testing-metric, video_auc: 0.9937611408199644    testing-metric, video_eer: 0.08823529411764706    testing-metric, video_acc: 0.94    testing-metric, acc_real:0.8876404494382022; acc_fake:0.8762088974854932
+2025-09-21 17:23:20,312 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/ckpt_best.pth, current ckpt is 4+940
+2025-09-21 17:23:20,583 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/metric_dict_best.pickle
+2025-09-21 17:23:20,583 - INFO - dataset: avg    step: 8468    testing-metric, acc: 0.8801020408163265    testing-metric, auc: 0.9583306167097706    testing-metric, eer: 0.10486891385767791    testing-metric, ap: 0.979336676893578    testing-metric, video_auc: 0.9937611408199644    
+2025-09-21 17:23:20,584 - INFO - ===> Test Done!
+2025-09-21 17:32:26,662 - INFO - Iter: 8728    training-loss, overall: 0.05979429930448532    training-loss, real_loss: 0.18284347653388977    training-loss, fake_loss: 0.03657401353120804    
+2025-09-21 17:32:26,662 - INFO - Iter: 8728    training-metric, acc: 0.9749999999999992    training-metric, auc: 0.9962891044592872    training-metric, eer: 0.004672077922077921    training-metric, ap: 0.9993365300669287    
+2025-09-21 17:42:56,999 - INFO - Iter: 9028    training-loss, overall: 0.06039877235889435    training-loss, real_loss: 0.1710079163312912    training-loss, fake_loss: 0.041119251400232315    
+2025-09-21 17:42:57,000 - INFO - Iter: 9028    training-metric, acc: 0.9755833333333325    training-metric, auc: 0.9951702575979914    training-metric, eer: 0.003534188034188035    training-metric, ap: 0.999107837609349    
+2025-09-21 17:53:27,375 - INFO - Iter: 9328    training-loss, overall: 0.06730672717094421    training-loss, real_loss: 0.2012365460395813    training-loss, fake_loss: 0.04347039759159088    
+2025-09-21 17:53:27,376 - INFO - Iter: 9328    training-metric, acc: 0.9739166666666655    training-metric, auc: 0.9943531283627006    training-metric, eer: 0.007325554075554074    training-metric, ap: 0.9989833526971673    
+2025-09-21 17:56:16,829 - INFO - ===> Test start!
+2025-09-21 17:56:16,839 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-21 17:56:37,305 - INFO - dataset: UADFV_HAV-DF_test    step: 9409    testing-loss, overall: 0.3674362003803253    testing-loss, real_loss: 0.16750361025333405    testing-loss, fake_loss: 0.46920862793922424    
+2025-09-21 17:56:37,306 - INFO - dataset: UADFV_HAV-DF_test    step: 9409    testing-metric, acc: 0.7997448979591837    testing-metric, auc: 0.9536870014995762    testing-metric, eer: 0.11235955056179775    testing-metric, ap: 0.9771609062232971    testing-metric, video_auc: 0.9848484848484849    testing-metric, video_eer: 0.058823529411764705    testing-metric, video_acc: 0.81    testing-metric, acc_real:0.8052434456928839; acc_fake:0.7969052224371374
+2025-09-21 17:56:37,306 - INFO - dataset: avg    step: 9409    testing-metric, acc: 0.7997448979591837    testing-metric, auc: 0.9536870014995762    testing-metric, eer: 0.11235955056179775    testing-metric, ap: 0.9771609062232971    testing-metric, video_auc: 0.9848484848484849    
+2025-09-21 17:56:37,307 - INFO - ===> Test Done!
+2025-09-21 17:56:37,530 - INFO - ===> Epoch[4] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV_HAV-DF_test:  auc=0.9583306167097706 | 
+============================================================================================= 
+================================== Average best metric ====================================== 
+| avg auc: 0.9583306167097706 | 
+| UADFV_HAV-DF_test: 0.9583306167097706 | 
+=============================================================================================!
+2025-09-21 17:56:37,531 - INFO - ===> Epoch[5] start!
+2025-09-21 17:56:37,584 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/train/UADFV_FairFD_Indian,UADFV_HAV-DF_train/data_dict_train.pickle
+2025-09-21 17:56:41,410 - INFO - Iter: 9410    training-loss, overall: 0.04784837365150452    training-loss, real_loss: 0.07617136836051941    training-loss, fake_loss: 0.042850200086832047    
+2025-09-21 17:56:41,411 - INFO - Iter: 9410    training-metric, acc: 0.975    training-metric, auc: 0.9950980392156863    training-metric, eer: 0.0    training-metric, ap: 0.9991596638655462    
+2025-09-21 18:07:11,589 - INFO - Iter: 9710    training-loss, overall: 0.057562269270420074    training-loss, real_loss: 0.1740248203277588    training-loss, fake_loss: 0.03627828508615494    
+2025-09-21 18:07:11,589 - INFO - Iter: 9710    training-metric, acc: 0.9764999999999994    training-metric, auc: 0.996210342373246    training-metric, eer: 0.002182539682539682    training-metric, ap: 0.9993359347557631    
+2025-09-21 18:17:41,827 - INFO - Iter: 10010    training-loss, overall: 0.06323128193616867    training-loss, real_loss: 0.187775120139122    training-loss, fake_loss: 0.04122871905565262    
+2025-09-21 18:17:41,828 - INFO - Iter: 10010    training-metric, acc: 0.9743333333333323    training-metric, auc: 0.9957425582724865    training-metric, eer: 0.0041215123429888525    training-metric, ap: 0.9992555471057731    
+2025-09-21 18:28:12,063 - INFO - Iter: 10310    training-loss, overall: 0.05573941767215729    training-loss, real_loss: 0.17764142155647278    training-loss, fake_loss: 0.034336984157562256    
+2025-09-21 18:28:12,063 - INFO - Iter: 10310    training-metric, acc: 0.9785833333333326    training-metric, auc: 0.9963334586312269    training-metric, eer: 0.003911185432924564    training-metric, ap: 0.9993859415074582    
+2025-09-21 18:29:36,326 - INFO - ===> Test start!
+2025-09-21 18:29:36,333 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-21 18:29:56,680 - INFO - dataset: UADFV_HAV-DF_test    step: 10350    testing-loss, overall: 0.2709851562976837    testing-loss, real_loss: 0.4291246831417084    testing-loss, fake_loss: 0.1906919926404953    
+2025-09-21 18:29:56,682 - INFO - dataset: UADFV_HAV-DF_test    step: 10350    testing-metric, acc: 0.8839285714285714    testing-metric, auc: 0.956026919928426    testing-metric, eer: 0.11235955056179775    testing-metric, ap: 0.9783183804732615    testing-metric, video_auc: 0.9875222816399287    testing-metric, video_eer: 0.058823529411764705    testing-metric, video_acc: 0.94    testing-metric, acc_real:0.8651685393258427; acc_fake:0.8936170212765957
+2025-09-21 18:29:56,682 - INFO - dataset: avg    step: 10350    testing-metric, acc: 0.8839285714285714    testing-metric, auc: 0.956026919928426    testing-metric, eer: 0.11235955056179775    testing-metric, ap: 0.9783183804732615    testing-metric, video_auc: 0.9875222816399287    
+2025-09-21 18:29:56,683 - INFO - ===> Test Done!
+2025-09-21 18:39:02,631 - INFO - Iter: 10610    training-loss, overall: 0.05332871899008751    training-loss, real_loss: 0.16509279608726501    training-loss, fake_loss: 0.03353161737322807    
+2025-09-21 18:39:02,631 - INFO - Iter: 10610    training-metric, acc: 0.9781666666666656    training-metric, auc: 0.9966987294789785    training-metric, eer: 0.0033097643097643095    training-metric, ap: 0.9993730094028346    
+2025-09-21 18:49:32,850 - INFO - Iter: 10910    training-loss, overall: 0.05993529036641121    training-loss, real_loss: 0.17665164172649384    training-loss, fake_loss: 0.037719566375017166    
+2025-09-21 18:49:32,851 - INFO - Iter: 10910    training-metric, acc: 0.9768333333333319    training-metric, auc: 0.9960332459665318    training-metric, eer: 0.00527922077922078    training-metric, ap: 0.9992959930592051    
+2025-09-21 19:00:03,105 - INFO - Iter: 11210    training-loss, overall: 0.054104991257190704    training-loss, real_loss: 0.16008010506629944    training-loss, fake_loss: 0.0337020568549633    
+2025-09-21 19:00:03,106 - INFO - Iter: 11210    training-metric, acc: 0.9784999999999995    training-metric, auc: 0.9967533333835206    training-metric, eer: 0.003024753024753025    training-metric, ap: 0.9994390478743753    
+2025-09-21 19:02:52,575 - INFO - ===> Test start!
+2025-09-21 19:02:52,584 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-21 19:03:18,153 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/ckpt_best.pth, current ckpt is 5+1881
+2025-09-21 19:03:18,895 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/metric_dict_best.pickle
+2025-09-21 19:03:18,897 - INFO - dataset: UADFV_HAV-DF_test    step: 11291    testing-loss, overall: 0.25533491373062134    testing-loss, real_loss: 0.4671076238155365    testing-loss, fake_loss: 0.15184734761714935    
+2025-09-21 19:03:18,898 - INFO - dataset: UADFV_HAV-DF_test    step: 11291    testing-metric, acc: 0.9196428571428571    testing-metric, auc: 0.9647998029542375    testing-metric, eer: 0.10861423220973783    testing-metric, ap: 0.981329730791296    testing-metric, video_auc: 0.9986631016042781    testing-metric, video_eer: 0.029411764705882353    testing-metric, video_acc: 0.99    testing-metric, acc_real:0.898876404494382; acc_fake:0.9303675048355899
+2025-09-21 19:03:24,205 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/ckpt_best.pth, current ckpt is 5+1881
+2025-09-21 19:03:24,211 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/metric_dict_best.pickle
+2025-09-21 19:03:24,211 - INFO - dataset: avg    step: 11291    testing-metric, acc: 0.9196428571428571    testing-metric, auc: 0.9647998029542375    testing-metric, eer: 0.10861423220973783    testing-metric, ap: 0.981329730791296    testing-metric, video_auc: 0.9986631016042781    
+2025-09-21 19:03:24,212 - INFO - ===> Test Done!
+2025-09-21 19:03:24,445 - INFO - ===> Epoch[5] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV_HAV-DF_test:  auc=0.9647998029542375 | 
+============================================================================================= 
+================================== Average best metric ====================================== 
+| avg auc: 0.9647998029542375 | 
+| UADFV_HAV-DF_test: 0.9647998029542375 | 
+=============================================================================================!
+2025-09-21 19:03:24,445 - INFO - ===> Epoch[6] start!
+2025-09-21 19:03:24,502 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/train/UADFV_FairFD_Indian,UADFV_HAV-DF_train/data_dict_train.pickle
+2025-09-21 19:03:29,835 - INFO - Iter: 11292    training-loss, overall: 0.009409263730049133    training-loss, real_loss: 0.06763473898172379    training-loss, fake_loss: 0.0010913396254181862    
+2025-09-21 19:03:29,836 - INFO - Iter: 11292    training-metric, acc: 1.0    training-metric, auc: 1.0    training-metric, eer: 0.0    training-metric, ap: 1.0    
+2025-09-21 19:14:00,154 - INFO - Iter: 11592    training-loss, overall: 0.051063038408756256    training-loss, real_loss: 0.1586751788854599    training-loss, fake_loss: 0.031313199549913406    
+2025-09-21 19:14:00,155 - INFO - Iter: 11592    training-metric, acc: 0.9786666666666656    training-metric, auc: 0.9971766811111973    training-metric, eer: 0.0024222154656937268    training-metric, ap: 0.9994932326978071    
+2025-09-21 19:24:30,349 - INFO - Iter: 11892    training-loss, overall: 0.05612700432538986    training-loss, real_loss: 0.15340857207775116    training-loss, fake_loss: 0.037354640662670135    
+2025-09-21 19:24:30,350 - INFO - Iter: 11892    training-metric, acc: 0.9779166666666659    training-metric, auc: 0.9967443876178899    training-metric, eer: 0.0036931216931216926    training-metric, ap: 0.9993773528479505    
+2025-09-21 19:35:00,607 - INFO - Iter: 12192    training-loss, overall: 0.05171581357717514    training-loss, real_loss: 0.17147478461265564    training-loss, fake_loss: 0.03124268352985382    
+2025-09-21 19:35:00,608 - INFO - Iter: 12192    training-metric, acc: 0.9797499999999992    training-metric, auc: 0.9972262562150114    training-metric, eer: 0.0028835978835978836    training-metric, ap: 0.9995619000825985    
+2025-09-21 19:36:24,958 - INFO - ===> Test start!
+2025-09-21 19:36:24,966 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-21 19:36:45,323 - INFO - dataset: UADFV_HAV-DF_test    step: 12232    testing-loss, overall: 0.2525443136692047    testing-loss, real_loss: 0.4506271481513977    testing-loss, fake_loss: 0.1526108831167221    
+2025-09-21 19:36:45,323 - INFO - dataset: UADFV_HAV-DF_test    step: 12232    testing-metric, acc: 0.9030612244897959    testing-metric, auc: 0.9625540608089018    testing-metric, eer: 0.10112359550561797    testing-metric, ap: 0.9808843669314606    testing-metric, video_auc: 0.9950980392156862    testing-metric, video_eer: 0.029411764705882353    testing-metric, video_acc: 0.96    testing-metric, acc_real:0.8838951310861424; acc_fake:0.9129593810444874
+2025-09-21 19:36:45,325 - INFO - dataset: avg    step: 12232    testing-metric, acc: 0.9030612244897959    testing-metric, auc: 0.9625540608089018    testing-metric, eer: 0.10112359550561797    testing-metric, ap: 0.9808843669314606    testing-metric, video_auc: 0.9950980392156862    
+2025-09-21 19:36:45,325 - INFO - ===> Test Done!
+2025-09-21 19:45:51,458 - INFO - Iter: 12492    training-loss, overall: 0.05981741100549698    training-loss, real_loss: 0.17780058085918427    training-loss, fake_loss: 0.03723088651895523    
+2025-09-21 19:45:51,459 - INFO - Iter: 12492    training-metric, acc: 0.9750833333333325    training-metric, auc: 0.9957897076256476    training-metric, eer: 0.004415103662595302    training-metric, ap: 0.9992781935664482    
+2025-09-21 19:56:21,594 - INFO - Iter: 12792    training-loss, overall: 0.05718806013464928    training-loss, real_loss: 0.1740429401397705    training-loss, fake_loss: 0.03620767593383789    
+2025-09-21 19:56:21,595 - INFO - Iter: 12792    training-metric, acc: 0.9769166666666657    training-metric, auc: 0.9965509457838742    training-metric, eer: 0.005518144407033297    training-metric, ap: 0.9993561209324827    
+2025-09-21 20:06:51,933 - INFO - Iter: 13092    training-loss, overall: 0.055355023592710495    training-loss, real_loss: 0.1654558628797531    training-loss, fake_loss: 0.03596849367022514    
+2025-09-21 20:06:51,933 - INFO - Iter: 13092    training-metric, acc: 0.978916666666665    training-metric, auc: 0.9963061242394418    training-metric, eer: 0.004059523809523809    training-metric, ap: 0.9993800836872735    
+2025-09-21 20:09:41,401 - INFO - ===> Test start!
+2025-09-21 20:09:41,411 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-21 20:10:01,643 - INFO - dataset: UADFV_HAV-DF_test    step: 13173    testing-loss, overall: 0.3001239001750946    testing-loss, real_loss: 0.25061747431755066    testing-loss, fake_loss: 0.3244997262954712    
+2025-09-21 20:10:01,644 - INFO - dataset: UADFV_HAV-DF_test    step: 13173    testing-metric, acc: 0.8507653061224489    testing-metric, auc: 0.9516875665572774    testing-metric, eer: 0.12734082397003746    testing-metric, ap: 0.9759355900463734    testing-metric, video_auc: 0.983511586452763    testing-metric, video_eer: 0.058823529411764705    testing-metric, video_acc: 0.92    testing-metric, acc_real:0.846441947565543; acc_fake:0.8529980657640233
+2025-09-21 20:10:01,645 - INFO - dataset: avg    step: 13173    testing-metric, acc: 0.8507653061224489    testing-metric, auc: 0.9516875665572774    testing-metric, eer: 0.12734082397003746    testing-metric, ap: 0.9759355900463734    testing-metric, video_auc: 0.983511586452763    
+2025-09-21 20:10:01,646 - INFO - ===> Test Done!
+2025-09-21 20:10:01,888 - INFO - ===> Epoch[6] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV_HAV-DF_test:  auc=0.9647998029542375 | 
+============================================================================================= 
+================================== Average best metric ====================================== 
+| avg auc: 0.9647998029542375 | 
+| UADFV_HAV-DF_test: 0.9647998029542375 | 
+=============================================================================================!
+2025-09-21 20:10:01,889 - INFO - ===> Epoch[7] start!
+2025-09-21 20:10:01,946 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/train/UADFV_FairFD_Indian,UADFV_HAV-DF_train/data_dict_train.pickle
+2025-09-21 20:10:05,829 - INFO - Iter: 13174    training-loss, overall: 0.014860828407108784    training-loss, real_loss: 0.04870157688856125    training-loss, fake_loss: 0.013079737313091755    
+2025-09-21 20:10:05,830 - INFO - Iter: 13174    training-metric, acc: 1.0    training-metric, auc: 1.0    training-metric, eer: 0.0    training-metric, ap: 1.0    
+2025-09-21 20:20:36,002 - INFO - Iter: 13474    training-loss, overall: 0.058401864022016525    training-loss, real_loss: 0.17936500906944275    training-loss, fake_loss: 0.0375460721552372    
+2025-09-21 20:20:36,003 - INFO - Iter: 13474    training-metric, acc: 0.9763333333333325    training-metric, auc: 0.9960873848285441    training-metric, eer: 0.003233436958269173    training-metric, ap: 0.9993544481550157    
+2025-09-21 20:31:06,421 - INFO - Iter: 13774    training-loss, overall: 0.05137985199689865    training-loss, real_loss: 0.15549670159816742    training-loss, fake_loss: 0.03224799782037735    
+2025-09-21 20:31:06,422 - INFO - Iter: 13774    training-metric, acc: 0.9797499999999991    training-metric, auc: 0.9971284686248443    training-metric, eer: 0.0038944203944203948    training-metric, ap: 0.9994932534868265    
+2025-09-21 20:41:36,794 - INFO - Iter: 14074    training-loss, overall: 0.05409823730587959    training-loss, real_loss: 0.1650857925415039    training-loss, fake_loss: 0.03404073789715767    
+2025-09-21 20:41:36,795 - INFO - Iter: 14074    training-metric, acc: 0.9775833333333319    training-metric, auc: 0.9963945013704766    training-metric, eer: 0.0037091149591149592    training-metric, ap: 0.999372339987493    
+2025-09-21 20:43:01,069 - INFO - ===> Test start!
+2025-09-21 20:43:01,076 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-21 20:43:21,502 - INFO - dataset: UADFV_HAV-DF_test    step: 14114    testing-loss, overall: 0.2809842526912689    testing-loss, real_loss: 0.30683884024620056    testing-loss, fake_loss: 0.2671143412590027    
+2025-09-21 20:43:21,503 - INFO - dataset: UADFV_HAV-DF_test    step: 14114    testing-metric, acc: 0.8737244897959183    testing-metric, auc: 0.9518759191243055    testing-metric, eer: 0.12734082397003746    testing-metric, ap: 0.9760426661413272    testing-metric, video_auc: 0.9857397504456329    testing-metric, video_eer: 0.08823529411764706    testing-metric, video_acc: 0.93    testing-metric, acc_real:0.8838951310861424; acc_fake:0.8684719535783365
+2025-09-21 20:43:21,504 - INFO - dataset: avg    step: 14114    testing-metric, acc: 0.8737244897959183    testing-metric, auc: 0.9518759191243055    testing-metric, eer: 0.12734082397003746    testing-metric, ap: 0.9760426661413272    testing-metric, video_auc: 0.9857397504456329    
+2025-09-21 20:43:21,504 - INFO - ===> Test Done!
+2025-09-21 20:52:27,508 - INFO - Iter: 14374    training-loss, overall: 0.058887284249067307    training-loss, real_loss: 0.17749862372875214    training-loss, fake_loss: 0.036789774894714355    
+2025-09-21 20:52:27,508 - INFO - Iter: 14374    training-metric, acc: 0.9734999999999981    training-metric, auc: 0.9964614977150812    training-metric, eer: 0.004598003848003848    training-metric, ap: 0.9993866573657076    
+2025-09-21 21:02:57,821 - INFO - Iter: 14674    training-loss, overall: 0.05150517076253891    training-loss, real_loss: 0.14809994399547577    training-loss, fake_loss: 0.03395472466945648    
+2025-09-21 21:02:57,822 - INFO - Iter: 14674    training-metric, acc: 0.9787499999999989    training-metric, auc: 0.9966224028641277    training-metric, eer: 0.003185461881114055    training-metric, ap: 0.9994223962492974    
+2025-09-21 21:13:28,139 - INFO - Iter: 14974    training-loss, overall: 0.054399676620960236    training-loss, real_loss: 0.15114504098892212    training-loss, fake_loss: 0.035104766488075256    
+2025-09-21 21:13:28,139 - INFO - Iter: 14974    training-metric, acc: 0.9772499999999996    training-metric, auc: 0.9967493797590757    training-metric, eer: 0.0035196687370600407    training-metric, ap: 0.999409911997095    
+2025-09-21 21:16:17,609 - INFO - ===> Test start!
+2025-09-21 21:16:17,616 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-21 21:16:45,207 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/ckpt_best.pth, current ckpt is 7+1881
+2025-09-21 21:16:45,278 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/metric_dict_best.pickle
+2025-09-21 21:16:45,280 - INFO - dataset: UADFV_HAV-DF_test    step: 15055    testing-loss, overall: 0.224568173289299    testing-loss, real_loss: 0.24415917694568634    testing-loss, fake_loss: 0.21344199776649475    
+2025-09-21 21:16:45,281 - INFO - dataset: UADFV_HAV-DF_test    step: 15055    testing-metric, acc: 0.9209183673469388    testing-metric, auc: 0.9794478372054274    testing-metric, eer: 0.06741573033707865    testing-metric, ap: 0.9892383021523861    testing-metric, video_auc: 1.0    testing-metric, video_eer: 0.0    testing-metric, video_acc: 0.99    testing-metric, acc_real:0.9101123595505618; acc_fake:0.9264990328820116
+2025-09-21 21:16:50,013 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/ckpt_best.pth, current ckpt is 7+1881
+2025-09-21 21:16:50,245 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/metric_dict_best.pickle
+2025-09-21 21:16:50,245 - INFO - dataset: avg    step: 15055    testing-metric, acc: 0.9209183673469388    testing-metric, auc: 0.9794478372054274    testing-metric, eer: 0.06741573033707865    testing-metric, ap: 0.9892383021523861    testing-metric, video_auc: 1.0    
+2025-09-21 21:16:50,246 - INFO - ===> Test Done!
+2025-09-21 21:16:50,475 - INFO - ===> Epoch[7] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV_HAV-DF_test:  auc=0.9794478372054274 | 
+============================================================================================= 
+================================== Average best metric ====================================== 
+| avg auc: 0.9794478372054274 | 
+| UADFV_HAV-DF_test: 0.9794478372054274 | 
+=============================================================================================!
+2025-09-21 21:16:50,476 - INFO - ===> Epoch[8] start!
+2025-09-21 21:16:50,541 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/train/UADFV_FairFD_Indian,UADFV_HAV-DF_train/data_dict_train.pickle
+2025-09-21 21:16:55,915 - INFO - Iter: 15056    training-loss, overall: 0.12436170876026154    training-loss, real_loss: 0.07409349828958511    training-loss, fake_loss: 0.13895569741725922    
+2025-09-21 21:16:55,916 - INFO - Iter: 15056    training-metric, acc: 0.975    training-metric, auc: 0.982078853046595    training-metric, eer: 0.0    training-metric, ap: 0.9955197132616487    
+2025-09-21 21:27:26,051 - INFO - Iter: 15356    training-loss, overall: 0.05431092157959938    training-loss, real_loss: 0.1585903912782669    training-loss, fake_loss: 0.034949470311403275    
+2025-09-21 21:27:26,052 - INFO - Iter: 15356    training-metric, acc: 0.9775833333333327    training-metric, auc: 0.9965074802685939    training-metric, eer: 0.003143994053084962    training-metric, ap: 0.9994267576585923    
+2025-09-21 21:37:56,425 - INFO - Iter: 15656    training-loss, overall: 0.05306031182408333    training-loss, real_loss: 0.16167372465133667    training-loss, fake_loss: 0.032932016998529434    
+2025-09-21 21:37:56,426 - INFO - Iter: 15656    training-metric, acc: 0.9782499999999992    training-metric, auc: 0.9968444394355449    training-metric, eer: 0.0030266955266955264    training-metric, ap: 0.9994641496009359    
+2025-09-21 21:48:26,684 - INFO - Iter: 15956    training-loss, overall: 0.05519288405776024    training-loss, real_loss: 0.16518570482730865    training-loss, fake_loss: 0.0345677025616169    
+2025-09-21 21:48:26,684 - INFO - Iter: 15956    training-metric, acc: 0.978999999999999    training-metric, auc: 0.9965077188253485    training-metric, eer: 0.002705026455026455    training-metric, ap: 0.999404654102791    
+2025-09-21 21:49:50,935 - INFO - ===> Test start!
+2025-09-21 21:49:50,944 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-21 21:50:11,362 - INFO - dataset: UADFV_HAV-DF_test    step: 15996    testing-loss, overall: 0.2084212750196457    testing-loss, real_loss: 0.28527116775512695    testing-loss, fake_loss: 0.1685735285282135    
+2025-09-21 21:50:11,363 - INFO - dataset: UADFV_HAV-DF_test    step: 15996    testing-metric, acc: 0.9387755102040817    testing-metric, auc: 0.9781945682017401    testing-metric, eer: 0.07116104868913857    testing-metric, ap: 0.9884373117988916    testing-metric, video_auc: 0.999554367201426    testing-metric, video_eer: 0.029411764705882353    testing-metric, video_acc: 0.99    testing-metric, acc_real:0.9325842696629213; acc_fake:0.941972920696325
+2025-09-21 21:50:11,364 - INFO - dataset: avg    step: 15996    testing-metric, acc: 0.9387755102040817    testing-metric, auc: 0.9781945682017401    testing-metric, eer: 0.07116104868913857    testing-metric, ap: 0.9884373117988916    testing-metric, video_auc: 0.999554367201426    
+2025-09-21 21:50:11,365 - INFO - ===> Test Done!
+2025-09-21 21:59:17,295 - INFO - Iter: 16256    training-loss, overall: 0.05184270069003105    training-loss, real_loss: 0.1596965193748474    training-loss, fake_loss: 0.03259650245308876    
+2025-09-21 21:59:17,296 - INFO - Iter: 16256    training-metric, acc: 0.9783333333333332    training-metric, auc: 0.9969107032808173    training-metric, eer: 0.0013302972195589646    training-metric, ap: 0.9994965298994485    
+2025-09-21 22:09:47,670 - INFO - Iter: 16556    training-loss, overall: 0.054524678736925125    training-loss, real_loss: 0.16746482253074646    training-loss, fake_loss: 0.034678295254707336    
+2025-09-21 22:09:47,671 - INFO - Iter: 16556    training-metric, acc: 0.9766666666666662    training-metric, auc: 0.9967653513898188    training-metric, eer: 0.0020833333333333333    training-metric, ap: 0.9994449971048799    
+2025-09-21 22:20:17,966 - INFO - Iter: 16856    training-loss, overall: 0.055863503366708755    training-loss, real_loss: 0.16319993138313293    training-loss, fake_loss: 0.03591252118349075    
+2025-09-21 22:20:17,966 - INFO - Iter: 16856    training-metric, acc: 0.9772499999999987    training-metric, auc: 0.9967721515504907    training-metric, eer: 0.002611111111111111    training-metric, ap: 0.9994162437080011    
+2025-09-21 22:23:07,453 - INFO - ===> Test start!
+2025-09-21 22:23:07,461 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-21 22:23:27,850 - INFO - dataset: UADFV_HAV-DF_test    step: 16937    testing-loss, overall: 0.23188510537147522    testing-loss, real_loss: 0.3923499286174774    testing-loss, fake_loss: 0.1503574103116989    
+2025-09-21 22:23:27,851 - INFO - dataset: UADFV_HAV-DF_test    step: 16937    testing-metric, acc: 0.9158163265306123    testing-metric, auc: 0.9686392975898115    testing-metric, eer: 0.09737827715355805    testing-metric, ap: 0.9837343469766091    testing-metric, video_auc: 1.0    testing-metric, video_eer: 0.0    testing-metric, video_acc: 1.0    testing-metric, acc_real:0.8876404494382022; acc_fake:0.9303675048355899
+2025-09-21 22:23:27,852 - INFO - dataset: avg    step: 16937    testing-metric, acc: 0.9158163265306123    testing-metric, auc: 0.9686392975898115    testing-metric, eer: 0.09737827715355805    testing-metric, ap: 0.9837343469766091    testing-metric, video_auc: 1.0    
+2025-09-21 22:23:27,853 - INFO - ===> Test Done!
+2025-09-21 22:23:28,086 - INFO - ===> Epoch[8] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV_HAV-DF_test:  auc=0.9794478372054274 | 
+============================================================================================= 
+================================== Average best metric ====================================== 
+| avg auc: 0.9794478372054274 | 
+| UADFV_HAV-DF_test: 0.9794478372054274 | 
+=============================================================================================!
+2025-09-21 22:23:28,087 - INFO - ===> Epoch[9] start!
+2025-09-21 22:23:28,139 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/train/UADFV_FairFD_Indian,UADFV_HAV-DF_train/data_dict_train.pickle
+2025-09-21 22:23:31,966 - INFO - Iter: 16938    training-loss, overall: 0.04841465502977371    training-loss, real_loss: 0.05058165639638901    training-loss, fake_loss: 0.04810507595539093    
+2025-09-21 22:23:31,967 - INFO - Iter: 16938    training-metric, acc: 0.975    training-metric, auc: 1.0    training-metric, eer: 0.0    training-metric, ap: 1.0    
+2025-09-21 22:34:02,258 - INFO - Iter: 17238    training-loss, overall: 0.04878586158156395    training-loss, real_loss: 0.139828160405159    training-loss, fake_loss: 0.03218451142311096    
+2025-09-21 22:34:02,259 - INFO - Iter: 17238    training-metric, acc: 0.9804166666666655    training-metric, auc: 0.9968915092772648    training-metric, eer: 0.002022735718387892    training-metric, ap: 0.9994731879130595    
+2025-09-21 22:44:32,736 - INFO - Iter: 17538    training-loss, overall: 0.05207802355289459    training-loss, real_loss: 0.1484970599412918    training-loss, fake_loss: 0.03345675393939018    
+2025-09-21 22:44:32,736 - INFO - Iter: 17538    training-metric, acc: 0.9785833333333329    training-metric, auc: 0.9970506149001989    training-metric, eer: 0.0017724867724867724    training-metric, ap: 0.9994830319103615    
+2025-09-21 22:55:02,994 - INFO - Iter: 17838    training-loss, overall: 0.05498571693897247    training-loss, real_loss: 0.1659419983625412    training-loss, fake_loss: 0.035558342933654785    
+2025-09-21 22:55:02,995 - INFO - Iter: 17838    training-metric, acc: 0.9778333333333322    training-metric, auc: 0.9964659568648248    training-metric, eer: 0.003728835978835978    training-metric, ap: 0.9993658713074223    
+2025-09-21 22:56:27,263 - INFO - ===> Test start!
+2025-09-21 22:56:27,270 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-21 22:56:47,673 - INFO - dataset: UADFV_HAV-DF_test    step: 17878    testing-loss, overall: 0.2315685749053955    testing-loss, real_loss: 0.5156485438346863    testing-loss, fake_loss: 0.08855737000703812    
+2025-09-21 22:56:47,674 - INFO - dataset: UADFV_HAV-DF_test    step: 17878    testing-metric, acc: 0.9119897959183674    testing-metric, auc: 0.9741594766696369    testing-metric, eer: 0.07116104868913857    testing-metric, ap: 0.9870306182096829    testing-metric, video_auc: 1.0    testing-metric, video_eer: 0.0    testing-metric, video_acc: 0.97    testing-metric, acc_real:0.8876404494382022; acc_fake:0.9245647969052224
+2025-09-21 22:56:47,675 - INFO - dataset: avg    step: 17878    testing-metric, acc: 0.9119897959183674    testing-metric, auc: 0.9741594766696369    testing-metric, eer: 0.07116104868913857    testing-metric, ap: 0.9870306182096829    testing-metric, video_auc: 1.0    
+2025-09-21 22:56:47,675 - INFO - ===> Test Done!
+2025-09-21 23:05:53,741 - INFO - Iter: 18138    training-loss, overall: 0.05254208669066429    training-loss, real_loss: 0.15414226055145264    training-loss, fake_loss: 0.033110085874795914    
+2025-09-21 23:05:53,742 - INFO - Iter: 18138    training-metric, acc: 0.9774999999999993    training-metric, auc: 0.9969473246197237    training-metric, eer: 0.003598124098124098    training-metric, ap: 0.9994241524777815    
+2025-09-21 23:16:24,060 - INFO - Iter: 18438    training-loss, overall: 0.052579645067453384    training-loss, real_loss: 0.15209273993968964    training-loss, fake_loss: 0.033740900456905365    
+2025-09-21 23:16:24,060 - INFO - Iter: 18438    training-metric, acc: 0.9784999999999993    training-metric, auc: 0.996713837882986    training-metric, eer: 0.003510702260702261    training-metric, ap: 0.9994230714497512    
+2025-09-21 23:26:54,514 - INFO - Iter: 18738    training-loss, overall: 0.05012490600347519    training-loss, real_loss: 0.14487841725349426    training-loss, fake_loss: 0.03173377737402916    
+2025-09-21 23:26:54,515 - INFO - Iter: 18738    training-metric, acc: 0.9798333333333321    training-metric, auc: 0.9973196739882118    training-metric, eer: 0.0027910052910052907    training-metric, ap: 0.999510434253341    
+2025-09-21 23:29:43,983 - INFO - ===> Test start!
+2025-09-21 23:29:43,990 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-21 23:30:04,294 - INFO - dataset: UADFV_HAV-DF_test    step: 18819    testing-loss, overall: 0.20146551728248596    testing-loss, real_loss: 0.31191858649253845    testing-loss, fake_loss: 0.14335693418979645    
+2025-09-21 23:30:04,295 - INFO - dataset: UADFV_HAV-DF_test    step: 18819    testing-metric, acc: 0.9323979591836735    testing-metric, auc: 0.9782597671672497    testing-metric, eer: 0.0599250936329588    testing-metric, ap: 0.9891729420170537    testing-metric, video_auc: 0.9995543672014261    testing-metric, video_eer: 0.029411764705882353    testing-metric, video_acc: 0.99    testing-metric, acc_real:0.9213483146067416; acc_fake:0.9381044487427466
+2025-09-21 23:30:04,296 - INFO - dataset: avg    step: 18819    testing-metric, acc: 0.9323979591836735    testing-metric, auc: 0.9782597671672497    testing-metric, eer: 0.0599250936329588    testing-metric, ap: 0.9891729420170537    testing-metric, video_auc: 0.9995543672014261    
+2025-09-21 23:30:04,297 - INFO - ===> Test Done!
+2025-09-21 23:30:04,530 - INFO - ===> Epoch[9] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV_HAV-DF_test:  auc=0.9794478372054274 | 
+============================================================================================= 
+================================== Average best metric ====================================== 
+| avg auc: 0.9794478372054274 | 
+| UADFV_HAV-DF_test: 0.9794478372054274 | 
+=============================================================================================!
+2025-09-21 23:30:04,531 - INFO - ===> Epoch[10] start!
+2025-09-21 23:30:04,584 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/train/UADFV_FairFD_Indian,UADFV_HAV-DF_train/data_dict_train.pickle
+2025-09-21 23:30:08,623 - INFO - Iter: 18820    training-loss, overall: 0.049254827201366425    training-loss, real_loss: 0.1419820487499237    training-loss, fake_loss: 0.038951799273490906    
+2025-09-21 23:30:08,624 - INFO - Iter: 18820    training-metric, acc: 0.975    training-metric, auc: 1.0    training-metric, eer: 0.0    training-metric, ap: 1.0    
+2025-09-21 23:40:38,850 - INFO - Iter: 19120    training-loss, overall: 0.051727231591939926    training-loss, real_loss: 0.15889771282672882    training-loss, fake_loss: 0.03286787495017052    
+2025-09-21 23:40:38,851 - INFO - Iter: 19120    training-metric, acc: 0.9784999999999985    training-metric, auc: 0.9971422036541004    training-metric, eer: 0.0017104377104377104    training-metric, ap: 0.9994761422819509    
+2025-09-21 23:51:09,145 - INFO - Iter: 19420    training-loss, overall: 0.05425745248794556    training-loss, real_loss: 0.16027577221393585    training-loss, fake_loss: 0.034078992903232574    
+2025-09-21 23:51:09,145 - INFO - Iter: 19420    training-metric, acc: 0.9768333333333327    training-metric, auc: 0.9967991039768758    training-metric, eer: 0.0023529711029711027    training-metric, ap: 0.9994381435249309    
+2025-09-22 00:01:39,487 - INFO - Iter: 19720    training-loss, overall: 0.05285783112049103    training-loss, real_loss: 0.16159643232822418    training-loss, fake_loss: 0.03336625173687935    
+2025-09-22 00:01:39,487 - INFO - Iter: 19720    training-metric, acc: 0.9789166666666661    training-metric, auc: 0.9965521975122066    training-metric, eer: 0.002259214215735955    training-metric, ap: 0.9994261068310082    
+2025-09-22 00:03:03,871 - INFO - ===> Test start!
+2025-09-22 00:03:03,878 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-22 00:03:24,181 - INFO - dataset: UADFV_HAV-DF_test    step: 19760    testing-loss, overall: 0.20468728244304657    testing-loss, real_loss: 0.28594663739204407    testing-loss, fake_loss: 0.1631016582250595    
+2025-09-22 00:03:24,182 - INFO - dataset: UADFV_HAV-DF_test    step: 19760    testing-metric, acc: 0.9260204081632653    testing-metric, auc: 0.9759850477039098    testing-metric, eer: 0.07116104868913857    testing-metric, ap: 0.9872803589349456    testing-metric, video_auc: 1.0    testing-metric, video_eer: 0.0    testing-metric, video_acc: 1.0    testing-metric, acc_real:0.9026217228464419; acc_fake:0.9381044487427466
+2025-09-22 00:03:24,183 - INFO - dataset: avg    step: 19760    testing-metric, acc: 0.9260204081632653    testing-metric, auc: 0.9759850477039098    testing-metric, eer: 0.07116104868913857    testing-metric, ap: 0.9872803589349456    testing-metric, video_auc: 1.0    
+2025-09-22 00:03:24,184 - INFO - ===> Test Done!
+2025-09-22 00:12:30,230 - INFO - Iter: 20020    training-loss, overall: 0.046931009739637375    training-loss, real_loss: 0.1522783488035202    training-loss, fake_loss: 0.02962072379887104    
+2025-09-22 00:12:30,230 - INFO - Iter: 20020    training-metric, acc: 0.9814999999999996    training-metric, auc: 0.9973063583634335    training-metric, eer: 0.0016257816257816257    training-metric, ap: 0.9995241305127723    
+2025-09-22 00:23:00,649 - INFO - Iter: 20320    training-loss, overall: 0.0512835830450058    training-loss, real_loss: 0.14393195509910583    training-loss, fake_loss: 0.03374525532126427    
+2025-09-22 00:23:00,650 - INFO - Iter: 20320    training-metric, acc: 0.9785833333333326    training-metric, auc: 0.9968214706899182    training-metric, eer: 0.0027566636262288434    training-metric, ap: 0.9994555298310799    
+2025-09-22 00:33:30,885 - INFO - Iter: 20620    training-loss, overall: 0.05259993299841881    training-loss, real_loss: 0.16403521597385406    training-loss, fake_loss: 0.03331485390663147    
+2025-09-22 00:33:30,885 - INFO - Iter: 20620    training-metric, acc: 0.9801666666666655    training-metric, auc: 0.9967700459276003    training-metric, eer: 0.005108465608465609    training-metric, ap: 0.9994246246438754    
+2025-09-22 00:36:20,333 - INFO - ===> Test start!
+2025-09-22 00:36:20,340 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-22 00:36:45,951 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/ckpt_best.pth, current ckpt is 10+1881
+2025-09-22 00:36:48,032 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/metric_dict_best.pickle
+2025-09-22 00:36:48,034 - INFO - dataset: UADFV_HAV-DF_test    step: 20701    testing-loss, overall: 0.19983842968940735    testing-loss, real_loss: 0.3811892569065094    testing-loss, fake_loss: 0.10542821884155273    
+2025-09-22 00:36:48,035 - INFO - dataset: UADFV_HAV-DF_test    step: 20701    testing-metric, acc: 0.9285714285714286    testing-metric, auc: 0.9811937206151884    testing-metric, eer: 0.06741573033707865    testing-metric, ap: 0.9904575754734838    testing-metric, video_auc: 1.0    testing-metric, video_eer: 0.0    testing-metric, video_acc: 1.0    testing-metric, acc_real:0.9101123595505618; acc_fake:0.9381044487427466
+2025-09-22 00:36:52,759 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/ckpt_best.pth, current ckpt is 10+1881
+2025-09-22 00:36:52,764 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/metric_dict_best.pickle
+2025-09-22 00:36:52,765 - INFO - dataset: avg    step: 20701    testing-metric, acc: 0.9285714285714286    testing-metric, auc: 0.9811937206151884    testing-metric, eer: 0.06741573033707865    testing-metric, ap: 0.9904575754734838    testing-metric, video_auc: 1.0    
+2025-09-22 00:36:52,765 - INFO - ===> Test Done!
+2025-09-22 00:36:52,992 - INFO - ===> Epoch[10] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV_HAV-DF_test:  auc=0.9811937206151884 | 
+============================================================================================= 
+================================== Average best metric ====================================== 
+| avg auc: 0.9811937206151884 | 
+| UADFV_HAV-DF_test: 0.9811937206151884 | 
+=============================================================================================!
+2025-09-22 00:36:52,993 - INFO - ===> Epoch[11] start!
+2025-09-22 00:36:53,051 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/train/UADFV_FairFD_Indian,UADFV_HAV-DF_train/data_dict_train.pickle
+2025-09-22 00:36:58,339 - INFO - Iter: 20702    training-loss, overall: 0.1245458722114563    training-loss, real_loss: 0.5501635670661926    training-loss, fake_loss: 0.0009794187499210238    
+2025-09-22 00:36:58,340 - INFO - Iter: 20702    training-metric, acc: 0.975    training-metric, auc: 1.0    training-metric, eer: 0.0    training-metric, ap: 1.0    
+2025-09-22 00:47:28,735 - INFO - Iter: 21002    training-loss, overall: 0.04481812193989754    training-loss, real_loss: 0.13451023399829865    training-loss, fake_loss: 0.028904035687446594    
+2025-09-22 00:47:28,736 - INFO - Iter: 21002    training-metric, acc: 0.981583333333333    training-metric, auc: 0.9974930870951797    training-metric, eer: 0.0033675213675213676    training-metric, ap: 0.9995243174199753    
+2025-09-22 00:57:59,008 - INFO - Iter: 21302    training-loss, overall: 0.048074912279844284    training-loss, real_loss: 0.14121021330356598    training-loss, fake_loss: 0.03151063621044159    
+2025-09-22 00:57:59,009 - INFO - Iter: 21302    training-metric, acc: 0.9797499999999989    training-metric, auc: 0.9971534003232565    training-metric, eer: 0.002824074074074074    training-metric, ap: 0.9994869810984112    
+2025-09-22 01:08:29,281 - INFO - Iter: 21602    training-loss, overall: 0.047722186893224716    training-loss, real_loss: 0.13998883962631226    training-loss, fake_loss: 0.030181748792529106    
+2025-09-22 01:08:29,282 - INFO - Iter: 21602    training-metric, acc: 0.9799999999999986    training-metric, auc: 0.9974432138751737    training-metric, eer: 0.001964219355523703    training-metric, ap: 0.9995461177156325    
+2025-09-22 01:09:53,539 - INFO - ===> Test start!
+2025-09-22 01:09:53,546 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-22 01:10:13,955 - INFO - dataset: UADFV_HAV-DF_test    step: 21642    testing-loss, overall: 0.20285287499427795    testing-loss, real_loss: 0.4098609983921051    testing-loss, fake_loss: 0.09546061605215073    
+2025-09-22 01:10:13,956 - INFO - dataset: UADFV_HAV-DF_test    step: 21642    testing-metric, acc: 0.9323979591836735    testing-metric, auc: 0.9759850477039098    testing-metric, eer: 0.08239700374531835    testing-metric, ap: 0.9877242235540237    testing-metric, video_auc: 1.0    testing-metric, video_eer: 0.0    testing-metric, video_acc: 0.99    testing-metric, acc_real:0.9026217228464419; acc_fake:0.9477756286266924
+2025-09-22 01:10:13,957 - INFO - dataset: avg    step: 21642    testing-metric, acc: 0.9323979591836735    testing-metric, auc: 0.9759850477039098    testing-metric, eer: 0.08239700374531835    testing-metric, ap: 0.9877242235540237    testing-metric, video_auc: 1.0    
+2025-09-22 01:10:13,957 - INFO - ===> Test Done!
+2025-09-22 01:19:19,836 - INFO - Iter: 21902    training-loss, overall: 0.05348833277821541    training-loss, real_loss: 0.1539650559425354    training-loss, fake_loss: 0.03478628024458885    
+2025-09-22 01:19:19,836 - INFO - Iter: 21902    training-metric, acc: 0.9779166666666655    training-metric, auc: 0.9964526140602928    training-metric, eer: 0.0032037037037037043    training-metric, ap: 0.9993711658518211    
+2025-09-22 01:29:50,091 - INFO - Iter: 22202    training-loss, overall: 0.04627841338515282    training-loss, real_loss: 0.139597550034523    training-loss, fake_loss: 0.029720783233642578    
+2025-09-22 01:29:50,092 - INFO - Iter: 22202    training-metric, acc: 0.9803333333333326    training-metric, auc: 0.9971092146948665    training-metric, eer: 0.002072751322751323    training-metric, ap: 0.9994845163804702    
+2025-09-22 01:40:20,348 - INFO - Iter: 22502    training-loss, overall: 0.047670505940914154    training-loss, real_loss: 0.13114428520202637    training-loss, fake_loss: 0.030474266037344933    
+2025-09-22 01:40:20,349 - INFO - Iter: 22502    training-metric, acc: 0.9810833333333328    training-metric, auc: 0.9977952278045016    training-metric, eer: 0.00075    training-metric, ap: 0.9995990383106241    
+2025-09-22 01:43:09,798 - INFO - ===> Test start!
+2025-09-22 01:43:09,806 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-22 01:43:30,196 - INFO - dataset: UADFV_HAV-DF_test    step: 22583    testing-loss, overall: 0.19645561277866364    testing-loss, real_loss: 0.248782679438591    testing-loss, fake_loss: 0.1688127964735031    
+2025-09-22 01:43:30,197 - INFO - dataset: UADFV_HAV-DF_test    step: 22583    testing-metric, acc: 0.9158163265306123    testing-metric, auc: 0.9779917269757098    testing-metric, eer: 0.0898876404494382    testing-metric, ap: 0.9883883685399556    testing-metric, video_auc: 1.0    testing-metric, video_eer: 0.0    testing-metric, video_acc: 0.97    testing-metric, acc_real:0.8838951310861424; acc_fake:0.9323017408123792
+2025-09-22 01:43:30,198 - INFO - dataset: avg    step: 22583    testing-metric, acc: 0.9158163265306123    testing-metric, auc: 0.9779917269757098    testing-metric, eer: 0.0898876404494382    testing-metric, ap: 0.9883883685399556    testing-metric, video_auc: 1.0    
+2025-09-22 01:43:30,198 - INFO - ===> Test Done!
+2025-09-22 01:43:30,418 - INFO - ===> Epoch[11] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV_HAV-DF_test:  auc=0.9811937206151884 | 
+============================================================================================= 
+================================== Average best metric ====================================== 
+| avg auc: 0.9811937206151884 | 
+| UADFV_HAV-DF_test: 0.9811937206151884 | 
+=============================================================================================!
+2025-09-22 01:43:30,419 - INFO - ===> Epoch[12] start!
+2025-09-22 01:43:30,471 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/train/UADFV_FairFD_Indian,UADFV_HAV-DF_train/data_dict_train.pickle
+2025-09-22 01:43:34,459 - INFO - Iter: 22584    training-loss, overall: 0.03933713585138321    training-loss, real_loss: 0.042480263859033585    training-loss, fake_loss: 0.03878246620297432    
+2025-09-22 01:43:34,460 - INFO - Iter: 22584    training-metric, acc: 0.975    training-metric, auc: 1.0    training-metric, eer: 0.0    training-metric, ap: 1.0    
+2025-09-22 01:54:04,663 - INFO - Iter: 22884    training-loss, overall: 0.04732958972454071    training-loss, real_loss: 0.1446150839328766    training-loss, fake_loss: 0.03031778149306774    
+2025-09-22 01:54:04,663 - INFO - Iter: 22884    training-metric, acc: 0.9804999999999994    training-metric, auc: 0.9974998102539325    training-metric, eer: 0.000640634533251983    training-metric, ap: 0.9995803936150003    
+2025-09-22 02:04:34,919 - INFO - Iter: 23184    training-loss, overall: 0.05330083891749382    training-loss, real_loss: 0.15448907017707825    training-loss, fake_loss: 0.03460187092423439    
+2025-09-22 02:04:34,920 - INFO - Iter: 23184    training-metric, acc: 0.9774999999999996    training-metric, auc: 0.9966813730815155    training-metric, eer: 0.006508056758056758    training-metric, ap: 0.9994310432593717    
+2025-09-22 02:15:05,335 - INFO - Iter: 23484    training-loss, overall: 0.048724181950092316    training-loss, real_loss: 0.14325395226478577    training-loss, fake_loss: 0.03144688531756401    
+2025-09-22 02:15:05,336 - INFO - Iter: 23484    training-metric, acc: 0.9806666666666654    training-metric, auc: 0.9972637106230814    training-metric, eer: 0.0012634708286882199    training-metric, ap: 0.9995444791345002    
+2025-09-22 02:16:29,586 - INFO - ===> Test start!
+2025-09-22 02:16:29,593 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-22 02:16:54,794 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/ckpt_best.pth, current ckpt is 12+940
+2025-09-22 02:16:56,449 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/metric_dict_best.pickle
+2025-09-22 02:16:56,451 - INFO - dataset: UADFV_HAV-DF_test    step: 23524    testing-loss, overall: 0.1721539944410324    testing-loss, real_loss: 0.2712944746017456    testing-loss, fake_loss: 0.12073749303817749    
+2025-09-22 02:16:56,453 - INFO - dataset: UADFV_HAV-DF_test    step: 23524    testing-metric, acc: 0.9362244897959183    testing-metric, auc: 0.9825339215728888    testing-metric, eer: 0.0749063670411985    testing-metric, ap: 0.9910109771673288    testing-metric, video_auc: 1.0    testing-metric, video_eer: 0.0    testing-metric, video_acc: 0.99    testing-metric, acc_real:0.9063670411985019; acc_fake:0.9516441005802708
+2025-09-22 02:17:01,244 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/ckpt_best.pth, current ckpt is 12+940
+2025-09-22 02:17:01,301 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/metric_dict_best.pickle
+2025-09-22 02:17:01,302 - INFO - dataset: avg    step: 23524    testing-metric, acc: 0.9362244897959183    testing-metric, auc: 0.9825339215728888    testing-metric, eer: 0.0749063670411985    testing-metric, ap: 0.9910109771673288    testing-metric, video_auc: 1.0    
+2025-09-22 02:17:01,303 - INFO - ===> Test Done!
+2025-09-22 02:26:07,421 - INFO - Iter: 23784    training-loss, overall: 0.04492180421948433    training-loss, real_loss: 0.13974972069263458    training-loss, fake_loss: 0.02765696682035923    
+2025-09-22 02:26:07,421 - INFO - Iter: 23784    training-metric, acc: 0.9817499999999993    training-metric, auc: 0.9977446217080794    training-metric, eer: 0.003121338020666879    training-metric, ap: 0.9995970532766629    
+2025-09-22 02:36:37,698 - INFO - Iter: 24084    training-loss, overall: 0.04875922203063965    training-loss, real_loss: 0.12876075506210327    training-loss, fake_loss: 0.03324776515364647    
+2025-09-22 02:36:37,698 - INFO - Iter: 24084    training-metric, acc: 0.9799999999999996    training-metric, auc: 0.9971053610214575    training-metric, eer: 0.0036007696007696005    training-metric, ap: 0.9994827495004414    
+2025-09-22 02:47:07,874 - INFO - Iter: 24384    training-loss, overall: 0.05155114084482193    training-loss, real_loss: 0.1644880473613739    training-loss, fake_loss: 0.031239617615938187    
+2025-09-22 02:47:07,875 - INFO - Iter: 24384    training-metric, acc: 0.978666666666666    training-metric, auc: 0.9970243124559233    training-metric, eer: 0.003988215488215488    training-metric, ap: 0.9994555791396169    
+2025-09-22 02:49:57,403 - INFO - ===> Test start!
+2025-09-22 02:49:57,411 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-22 02:50:22,844 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/ckpt_best.pth, current ckpt is 12+1881
+2025-09-22 02:50:25,133 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/metric_dict_best.pickle
+2025-09-22 02:50:25,135 - INFO - dataset: UADFV_HAV-DF_test    step: 24465    testing-loss, overall: 0.16986872255802155    testing-loss, real_loss: 0.26330360770225525    testing-loss, fake_loss: 0.12277378886938095    
+2025-09-22 02:50:25,136 - INFO - dataset: UADFV_HAV-DF_test    step: 24465    testing-metric, acc: 0.9451530612244898    testing-metric, auc: 0.9836133266685501    testing-metric, eer: 0.0599250936329588    testing-metric, ap: 0.9910536713348786    testing-metric, video_auc: 1.0    testing-metric, video_eer: 0.0    testing-metric, video_acc: 1.0    testing-metric, acc_real:0.9213483146067416; acc_fake:0.9574468085106383
+2025-09-22 02:50:30,106 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/ckpt_best.pth, current ckpt is 12+1881
+2025-09-22 02:50:30,112 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/metric_dict_best.pickle
+2025-09-22 02:50:30,113 - INFO - dataset: avg    step: 24465    testing-metric, acc: 0.9451530612244898    testing-metric, auc: 0.9836133266685501    testing-metric, eer: 0.0599250936329588    testing-metric, ap: 0.9910536713348786    testing-metric, video_auc: 1.0    
+2025-09-22 02:50:30,113 - INFO - ===> Test Done!
+2025-09-22 02:50:30,355 - INFO - ===> Epoch[12] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV_HAV-DF_test:  auc=0.9836133266685501 | 
+============================================================================================= 
+================================== Average best metric ====================================== 
+| avg auc: 0.9836133266685501 | 
+| UADFV_HAV-DF_test: 0.9836133266685501 | 
+=============================================================================================!
+2025-09-22 02:50:30,356 - INFO - ===> Epoch[13] start!
+2025-09-22 02:50:30,413 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/train/UADFV_FairFD_Indian,UADFV_HAV-DF_train/data_dict_train.pickle
+2025-09-22 02:50:35,754 - INFO - Iter: 24466    training-loss, overall: 0.015716467052698135    training-loss, real_loss: 0.12071537971496582    training-loss, fake_loss: 0.0007166225113905966    
+2025-09-22 02:50:35,755 - INFO - Iter: 24466    training-metric, acc: 1.0    training-metric, auc: 1.0    training-metric, eer: 0.0    training-metric, ap: 1.0    
+2025-09-22 03:01:06,003 - INFO - Iter: 24766    training-loss, overall: 0.05026647821068764    training-loss, real_loss: 0.1436505764722824    training-loss, fake_loss: 0.03316827863454819    
+2025-09-22 03:01:06,003 - INFO - Iter: 24766    training-metric, acc: 0.9800833333333329    training-metric, auc: 0.9969743603310873    training-metric, eer: 0.002570738440303658    training-metric, ap: 0.9994657103883717    
+2025-09-22 03:11:36,300 - INFO - Iter: 25066    training-loss, overall: 0.05059163272380829    training-loss, real_loss: 0.15344348549842834    training-loss, fake_loss: 0.03182410076260567    
+2025-09-22 03:11:36,301 - INFO - Iter: 25066    training-metric, acc: 0.9789166666666658    training-metric, auc: 0.9971329457766654    training-metric, eer: 0.001142857142857143    training-metric, ap: 0.9994909289735646    
+2025-09-22 03:22:06,576 - INFO - Iter: 25366    training-loss, overall: 0.04622887447476387    training-loss, real_loss: 0.13284558057785034    training-loss, fake_loss: 0.030165888369083405    
+2025-09-22 03:22:06,577 - INFO - Iter: 25366    training-metric, acc: 0.9816666666666665    training-metric, auc: 0.9973315645828954    training-metric, eer: 0.0021481481481481477    training-metric, ap: 0.9994957883715404    
+2025-09-22 03:23:30,849 - INFO - ===> Test start!
+2025-09-22 03:23:30,858 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-22 03:23:56,268 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/ckpt_best.pth, current ckpt is 13+940
+2025-09-22 03:23:57,043 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/metric_dict_best.pickle
+2025-09-22 03:23:57,045 - INFO - dataset: UADFV_HAV-DF_test    step: 25406    testing-loss, overall: 0.18155941367149353    testing-loss, real_loss: 0.1808701902627945    testing-loss, fake_loss: 0.1815958172082901    
+2025-09-22 03:23:57,045 - INFO - dataset: UADFV_HAV-DF_test    step: 25406    testing-metric, acc: 0.9362244897959183    testing-metric, auc: 0.9841638957106326    testing-metric, eer: 0.06741573033707865    testing-metric, ap: 0.9915784584596827    testing-metric, video_auc: 1.0    testing-metric, video_eer: 0.0    testing-metric, video_acc: 0.99    testing-metric, acc_real:0.9213483146067416; acc_fake:0.9439071566731141
+2025-09-22 03:24:01,727 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/ckpt_best.pth, current ckpt is 13+940
+2025-09-22 03:24:01,734 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/metric_dict_best.pickle
+2025-09-22 03:24:01,735 - INFO - dataset: avg    step: 25406    testing-metric, acc: 0.9362244897959183    testing-metric, auc: 0.9841638957106326    testing-metric, eer: 0.06741573033707865    testing-metric, ap: 0.9915784584596827    testing-metric, video_auc: 1.0    
+2025-09-22 03:24:01,735 - INFO - ===> Test Done!
+2025-09-22 03:33:07,823 - INFO - Iter: 25666    training-loss, overall: 0.047896143049001694    training-loss, real_loss: 0.13928627967834473    training-loss, fake_loss: 0.03182508051395416    
+2025-09-22 03:33:07,824 - INFO - Iter: 25666    training-metric, acc: 0.9794166666666652    training-metric, auc: 0.997438014617188    training-metric, eer: 0.0024060846560846564    training-metric, ap: 0.9996014964383628    
+2025-09-22 03:43:38,120 - INFO - Iter: 25966    training-loss, overall: 0.04514000192284584    training-loss, real_loss: 0.12671011686325073    training-loss, fake_loss: 0.029060259461402893    
+2025-09-22 03:43:38,121 - INFO - Iter: 25966    training-metric, acc: 0.9821666666666661    training-metric, auc: 0.9976029815033253    training-metric, eer: 0.0019788182831661093    training-metric, ap: 0.999584833596859    
+2025-09-22 03:54:08,240 - INFO - Iter: 26266    training-loss, overall: 0.047147609293460846    training-loss, real_loss: 0.14344827830791473    training-loss, fake_loss: 0.02970845066010952    
+2025-09-22 03:54:08,240 - INFO - Iter: 26266    training-metric, acc: 0.9809166666666664    training-metric, auc: 0.9973744735562828    training-metric, eer: 0.002784632034632034    training-metric, ap: 0.999536996851189    
+2025-09-22 03:56:57,705 - INFO - ===> Test start!
+2025-09-22 03:56:57,712 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-22 03:57:22,902 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/ckpt_best.pth, current ckpt is 13+1881
+2025-09-22 03:57:23,138 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/metric_dict_best.pickle
+2025-09-22 03:57:23,140 - INFO - dataset: UADFV_HAV-DF_test    step: 26347    testing-loss, overall: 0.14796176552772522    testing-loss, real_loss: 0.2124013900756836    testing-loss, fake_loss: 0.11501838266849518    
+2025-09-22 03:57:23,141 - INFO - dataset: UADFV_HAV-DF_test    step: 26347    testing-metric, acc: 0.951530612244898    testing-metric, auc: 0.988742311955317    testing-metric, eer: 0.04868913857677903    testing-metric, ap: 0.9939408104331726    testing-metric, video_auc: 1.0    testing-metric, video_eer: 0.0    testing-metric, video_acc: 1.0    testing-metric, acc_real:0.9363295880149812; acc_fake:0.9593810444874274
+2025-09-22 03:57:30,787 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/ckpt_best.pth, current ckpt is 13+1881
+2025-09-22 03:57:33,067 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/metric_dict_best.pickle
+2025-09-22 03:57:33,068 - INFO - dataset: avg    step: 26347    testing-metric, acc: 0.951530612244898    testing-metric, auc: 0.988742311955317    testing-metric, eer: 0.04868913857677903    testing-metric, ap: 0.9939408104331726    testing-metric, video_auc: 1.0    
+2025-09-22 03:57:33,069 - INFO - ===> Test Done!
+2025-09-22 03:57:33,304 - INFO - ===> Epoch[13] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV_HAV-DF_test:  auc=0.988742311955317 | 
+============================================================================================= 
+================================== Average best metric ====================================== 
+| avg auc: 0.988742311955317 | 
+| UADFV_HAV-DF_test: 0.988742311955317 | 
+=============================================================================================!
+2025-09-22 03:57:33,305 - INFO - ===> Epoch[14] start!
+2025-09-22 03:57:33,363 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/train/UADFV_FairFD_Indian,UADFV_HAV-DF_train/data_dict_train.pickle
+2025-09-22 03:57:37,253 - INFO - Iter: 26348    training-loss, overall: 0.09239891171455383    training-loss, real_loss: 0.09338681399822235    training-loss, fake_loss: 0.0921519324183464    
+2025-09-22 03:57:37,253 - INFO - Iter: 26348    training-metric, acc: 0.975    training-metric, auc: 0.98828125    training-metric, eer: 0.0    training-metric, ap: 0.9973214285714286    
+2025-09-22 04:08:07,345 - INFO - Iter: 26648    training-loss, overall: 0.04813653603196144    training-loss, real_loss: 0.15182265639305115    training-loss, fake_loss: 0.029837310314178467    
+2025-09-22 04:08:07,345 - INFO - Iter: 26648    training-metric, acc: 0.9795833333333328    training-metric, auc: 0.997803337782618    training-metric, eer: 0.0020462962962962965    training-metric, ap: 0.9996081750758617    
+2025-09-22 04:18:37,640 - INFO - Iter: 26948    training-loss, overall: 0.045913174748420715    training-loss, real_loss: 0.13353513181209564    training-loss, fake_loss: 0.030697541311383247    
+2025-09-22 04:18:37,640 - INFO - Iter: 26948    training-metric, acc: 0.981166666666666    training-metric, auc: 0.9975455148419625    training-metric, eer: 0.0015    training-metric, ap: 0.999551518610537    
+2025-09-22 04:29:07,919 - INFO - Iter: 27248    training-loss, overall: 0.048028528690338135    training-loss, real_loss: 0.14218689501285553    training-loss, fake_loss: 0.03027697280049324    
+2025-09-22 04:29:07,920 - INFO - Iter: 27248    training-metric, acc: 0.9805833333333323    training-metric, auc: 0.9973162493144382    training-metric, eer: 0.002294890294890295    training-metric, ap: 0.9995313663437465    
+2025-09-22 04:30:32,190 - INFO - ===> Test start!
+2025-09-22 04:30:32,198 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-22 04:30:57,477 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/ckpt_best.pth, current ckpt is 14+940
+2025-09-22 04:30:58,003 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/metric_dict_best.pickle
+2025-09-22 04:30:58,005 - INFO - dataset: UADFV_HAV-DF_test    step: 27288    testing-loss, overall: 0.1418043076992035    testing-loss, real_loss: 0.22888465225696564    testing-loss, fake_loss: 0.09641839563846588    
+2025-09-22 04:30:58,005 - INFO - dataset: UADFV_HAV-DF_test    step: 27288    testing-metric, acc: 0.9528061224489796    testing-metric, auc: 0.9900825129130173    testing-metric, eer: 0.0449438202247191    testing-metric, ap: 0.9948845795910808    testing-metric, video_auc: 1.0    testing-metric, video_eer: 0.0    testing-metric, video_acc: 1.0    testing-metric, acc_real:0.9325842696629213; acc_fake:0.9632495164410058
+2025-09-22 04:31:02,660 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/ckpt_best.pth, current ckpt is 14+940
+2025-09-22 04:31:02,936 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/metric_dict_best.pickle
+2025-09-22 04:31:02,936 - INFO - dataset: avg    step: 27288    testing-metric, acc: 0.9528061224489796    testing-metric, auc: 0.9900825129130173    testing-metric, eer: 0.0449438202247191    testing-metric, ap: 0.9948845795910808    testing-metric, video_auc: 1.0    
+2025-09-22 04:31:02,937 - INFO - ===> Test Done!
+2025-09-22 04:40:09,023 - INFO - Iter: 27548    training-loss, overall: 0.04574801027774811    training-loss, real_loss: 0.1309880167245865    training-loss, fake_loss: 0.03106530010700226    
+2025-09-22 04:40:09,024 - INFO - Iter: 27548    training-metric, acc: 0.981166666666666    training-metric, auc: 0.9973052032204677    training-metric, eer: 0.00047938638542665386    training-metric, ap: 0.9995385847421151    
+2025-09-22 04:50:39,321 - INFO - Iter: 27848    training-loss, overall: 0.0453038364648819    training-loss, real_loss: 0.1342347413301468    training-loss, fake_loss: 0.029432160779833794    
+2025-09-22 04:50:39,321 - INFO - Iter: 27848    training-metric, acc: 0.9807499999999989    training-metric, auc: 0.9977935374466035    training-metric, eer: 0.0031108987630726753    training-metric, ap: 0.9995773691045637    
+2025-09-22 05:01:09,457 - INFO - Iter: 28148    training-loss, overall: 0.045595429837703705    training-loss, real_loss: 0.1272982656955719    training-loss, fake_loss: 0.030365249142050743    
+2025-09-22 05:01:09,458 - INFO - Iter: 28148    training-metric, acc: 0.9819999999999999    training-metric, auc: 0.9978369563694139    training-metric, eer: 0.0013165578382969686    training-metric, ap: 0.9996222217156135    
+2025-09-22 05:03:58,907 - INFO - ===> Test start!
+2025-09-22 05:03:58,915 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-22 05:04:19,315 - INFO - dataset: UADFV_HAV-DF_test    step: 28229    testing-loss, overall: 0.15586534142494202    testing-loss, real_loss: 0.18814420700073242    testing-loss, fake_loss: 0.1394546777009964    
+2025-09-22 05:04:19,316 - INFO - dataset: UADFV_HAV-DF_test    step: 28229    testing-metric, acc: 0.9502551020408163    testing-metric, auc: 0.9851418801932788    testing-metric, eer: 0.056179775280898875    testing-metric, ap: 0.9916278568359438    testing-metric, video_auc: 1.0    testing-metric, video_eer: 0.0    testing-metric, video_acc: 1.0    testing-metric, acc_real:0.9363295880149812; acc_fake:0.9574468085106383
+2025-09-22 05:04:19,316 - INFO - dataset: avg    step: 28229    testing-metric, acc: 0.9502551020408163    testing-metric, auc: 0.9851418801932788    testing-metric, eer: 0.056179775280898875    testing-metric, ap: 0.9916278568359438    testing-metric, video_auc: 1.0    
+2025-09-22 05:04:19,317 - INFO - ===> Test Done!
+2025-09-22 05:04:19,552 - INFO - ===> Epoch[14] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV_HAV-DF_test:  auc=0.9900825129130173 | 
+============================================================================================= 
+================================== Average best metric ====================================== 
+| avg auc: 0.9900825129130173 | 
+| UADFV_HAV-DF_test: 0.9900825129130173 | 
+=============================================================================================!
+2025-09-22 05:04:19,553 - INFO - ===> Epoch[15] start!
+2025-09-22 05:04:19,607 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/train/UADFV_FairFD_Indian,UADFV_HAV-DF_train/data_dict_train.pickle
+2025-09-22 05:04:23,481 - INFO - Iter: 28230    training-loss, overall: 0.008486513048410416    training-loss, real_loss: 0.04143471270799637    training-loss, fake_loss: 0.0014975013909861445    
+2025-09-22 05:04:23,482 - INFO - Iter: 28230    training-metric, acc: 1.0    training-metric, auc: 1.0    training-metric, eer: 0.0    training-metric, ap: 1.0    
+2025-09-22 05:14:53,754 - INFO - Iter: 28530    training-loss, overall: 0.042135272175073624    training-loss, real_loss: 0.1235768273472786    training-loss, fake_loss: 0.027232911437749863    
+2025-09-22 05:14:53,755 - INFO - Iter: 28530    training-metric, acc: 0.9834999999999993    training-metric, auc: 0.9978909380624441    training-metric, eer: 0.003605820105820106    training-metric, ap: 0.9996407753172873    
+2025-09-22 05:25:23,909 - INFO - Iter: 28830    training-loss, overall: 0.04884374141693115    training-loss, real_loss: 0.14533032476902008    training-loss, fake_loss: 0.03083369880914688    
+2025-09-22 05:25:23,910 - INFO - Iter: 28830    training-metric, acc: 0.9791666666666655    training-metric, auc: 0.9975335930415823    training-metric, eer: 0.0018928571428571427    training-metric, ap: 0.9995573085241324    
+2025-09-22 05:35:54,104 - INFO - Iter: 29130    training-loss, overall: 0.044966138899326324    training-loss, real_loss: 0.13788501918315887    training-loss, fake_loss: 0.029879668727517128    
+2025-09-22 05:35:54,105 - INFO - Iter: 29130    training-metric, acc: 0.9819166666666659    training-metric, auc: 0.9976053290173816    training-metric, eer: 0.0018611111111111111    training-metric, ap: 0.9995495846588728    
+2025-09-22 05:37:18,357 - INFO - ===> Test start!
+2025-09-22 05:37:18,365 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-22 05:37:38,787 - INFO - dataset: UADFV_HAV-DF_test    step: 29170    testing-loss, overall: 0.1424514502286911    testing-loss, real_loss: 0.18640416860580444    testing-loss, fake_loss: 0.11983420699834824    
+2025-09-22 05:37:38,789 - INFO - dataset: UADFV_HAV-DF_test    step: 29170    testing-metric, acc: 0.951530612244898    testing-metric, auc: 0.987706372836662    testing-metric, eer: 0.056179775280898875    testing-metric, ap: 0.993026534751956    testing-metric, video_auc: 1.0    testing-metric, video_eer: 0.0    testing-metric, video_acc: 1.0    testing-metric, acc_real:0.9325842696629213; acc_fake:0.9613152804642167
+2025-09-22 05:37:38,789 - INFO - dataset: avg    step: 29170    testing-metric, acc: 0.951530612244898    testing-metric, auc: 0.987706372836662    testing-metric, eer: 0.056179775280898875    testing-metric, ap: 0.993026534751956    testing-metric, video_auc: 1.0    
+2025-09-22 05:37:38,790 - INFO - ===> Test Done!
+2025-09-22 05:46:45,013 - INFO - Iter: 29430    training-loss, overall: 0.04797177016735077    training-loss, real_loss: 0.14211010932922363    training-loss, fake_loss: 0.031046124175190926    
+2025-09-22 05:46:45,014 - INFO - Iter: 29430    training-metric, acc: 0.9797499999999999    training-metric, auc: 0.997709547243187    training-metric, eer: 0.0012087912087912088    training-metric, ap: 0.9995577472161284    
+2025-09-22 05:57:15,251 - INFO - Iter: 29730    training-loss, overall: 0.04391196370124817    training-loss, real_loss: 0.12962816655635834    training-loss, fake_loss: 0.028397077694535255    
+2025-09-22 05:57:15,252 - INFO - Iter: 29730    training-metric, acc: 0.9811666666666657    training-metric, auc: 0.9980768052591211    training-metric, eer: 0.001513227513227513    training-metric, ap: 0.9996437326747492    
+2025-09-22 06:07:45,428 - INFO - Iter: 30030    training-loss, overall: 0.04897487536072731    training-loss, real_loss: 0.13284337520599365    training-loss, fake_loss: 0.03296944871544838    
+2025-09-22 06:07:45,429 - INFO - Iter: 30030    training-metric, acc: 0.9807499999999993    training-metric, auc: 0.9970991402559144    training-metric, eer: 0.003257936507936508    training-metric, ap: 0.999465847733887    
+2025-09-22 06:10:34,879 - INFO - ===> Test start!
+2025-09-22 06:10:34,886 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-22 06:10:55,259 - INFO - dataset: UADFV_HAV-DF_test    step: 30111    testing-loss, overall: 0.16548340022563934    testing-loss, real_loss: 0.3483392298221588    testing-loss, fake_loss: 0.07219457626342773    
+2025-09-22 06:10:55,261 - INFO - dataset: UADFV_HAV-DF_test    step: 30111    testing-metric, acc: 0.9400510204081632    testing-metric, auc: 0.9857648925303718    testing-metric, eer: 0.052434456928838954    testing-metric, ap: 0.9924021297063566    testing-metric, video_auc: 1.0    testing-metric, video_eer: 0.0    testing-metric, video_acc: 0.99    testing-metric, acc_real:0.9063670411985019; acc_fake:0.9574468085106383
+2025-09-22 06:10:55,261 - INFO - dataset: avg    step: 30111    testing-metric, acc: 0.9400510204081632    testing-metric, auc: 0.9857648925303718    testing-metric, eer: 0.052434456928838954    testing-metric, ap: 0.9924021297063566    testing-metric, video_auc: 1.0    
+2025-09-22 06:10:55,262 - INFO - ===> Test Done!
+2025-09-22 06:10:55,503 - INFO - ===> Epoch[15] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV_HAV-DF_test:  auc=0.9900825129130173 | 
+============================================================================================= 
+================================== Average best metric ====================================== 
+| avg auc: 0.9900825129130173 | 
+| UADFV_HAV-DF_test: 0.9900825129130173 | 
+=============================================================================================!
+2025-09-22 06:10:55,504 - INFO - ===> Epoch[16] start!
+2025-09-22 06:10:55,556 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/train/UADFV_FairFD_Indian,UADFV_HAV-DF_train/data_dict_train.pickle
+2025-09-22 06:10:59,136 - INFO - Iter: 30112    training-loss, overall: 0.01956022158265114    training-loss, real_loss: 0.010615055449306965    training-loss, fake_loss: 0.02083810232579708    
+2025-09-22 06:10:59,137 - INFO - Iter: 30112    training-metric, acc: 1.0    training-metric, auc: 1.0    training-metric, eer: 0.0    training-metric, ap: 1.0    
+2025-09-22 06:21:29,163 - INFO - Iter: 30412    training-loss, overall: 0.044627729803323746    training-loss, real_loss: 0.13512691855430603    training-loss, fake_loss: 0.028979692608118057    
+2025-09-22 06:21:29,164 - INFO - Iter: 30412    training-metric, acc: 0.9824166666666656    training-metric, auc: 0.997857536035151    training-metric, eer: 0.003060846560846561    training-metric, ap: 0.9996035612623119    
+2025-09-22 06:31:59,339 - INFO - Iter: 30712    training-loss, overall: 0.04363101348280907    training-loss, real_loss: 0.12933652102947235    training-loss, fake_loss: 0.028433768078684807    
+2025-09-22 06:31:59,340 - INFO - Iter: 30712    training-metric, acc: 0.9817499999999998    training-metric, auc: 0.9979345150646842    training-metric, eer: 0.0010317460317460319    training-metric, ap: 0.9996472505151656    
+2025-09-22 06:42:29,574 - INFO - Iter: 31012    training-loss, overall: 0.04524364694952965    training-loss, real_loss: 0.14102593064308167    training-loss, fake_loss: 0.028867073357105255    
+2025-09-22 06:42:29,574 - INFO - Iter: 31012    training-metric, acc: 0.9814166666666657    training-metric, auc: 0.9974802034365702    training-metric, eer: 0.0018835978835978835    training-metric, ap: 0.9995714769074698    
+2025-09-22 06:43:53,807 - INFO - ===> Test start!
+2025-09-22 06:43:53,814 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-22 06:44:14,155 - INFO - dataset: UADFV_HAV-DF_test    step: 31052    testing-loss, overall: 0.15617839992046356    testing-loss, real_loss: 0.25044092535972595    testing-loss, fake_loss: 0.10824935883283615    
+2025-09-22 06:44:14,156 - INFO - dataset: UADFV_HAV-DF_test    step: 31052    testing-metric, acc: 0.951530612244898    testing-metric, auc: 0.9849680162852527    testing-metric, eer: 0.056179775280898875    testing-metric, ap: 0.9923311982090068    testing-metric, video_auc: 1.0    testing-metric, video_eer: 0.0    testing-metric, video_acc: 0.99    testing-metric, acc_real:0.9400749063670412; acc_fake:0.9574468085106383
+2025-09-22 06:44:14,157 - INFO - dataset: avg    step: 31052    testing-metric, acc: 0.951530612244898    testing-metric, auc: 0.9849680162852527    testing-metric, eer: 0.056179775280898875    testing-metric, ap: 0.9923311982090068    testing-metric, video_auc: 1.0    
+2025-09-22 06:44:14,158 - INFO - ===> Test Done!
+2025-09-22 06:53:20,103 - INFO - Iter: 31312    training-loss, overall: 0.04435204714536667    training-loss, real_loss: 0.1521673947572708    training-loss, fake_loss: 0.02880946546792984    
+2025-09-22 06:53:20,104 - INFO - Iter: 31312    training-metric, acc: 0.9815833333333325    training-metric, auc: 0.9973339410624575    training-metric, eer: 0.00101010101010101    training-metric, ap: 0.9995825950345105    
+2025-09-22 07:03:50,520 - INFO - Iter: 31612    training-loss, overall: 0.05060237646102905    training-loss, real_loss: 0.134822279214859    training-loss, fake_loss: 0.03426756709814072    
+2025-09-22 07:03:50,521 - INFO - Iter: 31612    training-metric, acc: 0.980833333333332    training-metric, auc: 0.9972336767244373    training-metric, eer: 0.002492183742183742    training-metric, ap: 0.9994993963227982    
+2025-09-22 07:14:20,821 - INFO - Iter: 31912    training-loss, overall: 0.04364905506372452    training-loss, real_loss: 0.11781053245067596    training-loss, fake_loss: 0.028892075642943382    
+2025-09-22 07:14:20,822 - INFO - Iter: 31912    training-metric, acc: 0.982333333333333    training-metric, auc: 0.9977107755323319    training-metric, eer: 0.0020384800384800387    training-metric, ap: 0.9995899597434    
+2025-09-22 07:17:10,274 - INFO - ===> Test start!
+2025-09-22 07:17:10,282 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-22 07:17:30,649 - INFO - dataset: UADFV_HAV-DF_test    step: 31993    testing-loss, overall: 0.16482406854629517    testing-loss, real_loss: 0.3470098674297333    testing-loss, fake_loss: 0.06994005292654037    
+2025-09-22 07:17:30,650 - INFO - dataset: UADFV_HAV-DF_test    step: 31993    testing-metric, acc: 0.951530612244898    testing-metric, auc: 0.9851418801932786    testing-metric, eer: 0.06367041198501873    testing-metric, ap: 0.9919925786651345    testing-metric, video_auc: 1.0    testing-metric, video_eer: 0.0    testing-metric, video_acc: 1.0    testing-metric, acc_real:0.9325842696629213; acc_fake:0.9613152804642167
+2025-09-22 07:17:30,651 - INFO - dataset: avg    step: 31993    testing-metric, acc: 0.951530612244898    testing-metric, auc: 0.9851418801932786    testing-metric, eer: 0.06367041198501873    testing-metric, ap: 0.9919925786651345    testing-metric, video_auc: 1.0    
+2025-09-22 07:17:30,651 - INFO - ===> Test Done!
+2025-09-22 07:17:30,883 - INFO - ===> Epoch[16] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV_HAV-DF_test:  auc=0.9900825129130173 | 
+============================================================================================= 
+================================== Average best metric ====================================== 
+| avg auc: 0.9900825129130173 | 
+| UADFV_HAV-DF_test: 0.9900825129130173 | 
+=============================================================================================!
+2025-09-22 07:17:30,884 - INFO - ===> Epoch[17] start!
+2025-09-22 07:17:30,951 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/train/UADFV_FairFD_Indian,UADFV_HAV-DF_train/data_dict_train.pickle
+2025-09-22 07:17:34,746 - INFO - Iter: 31994    training-loss, overall: 0.0028176188934594393    training-loss, real_loss: 0.005400324705988169    training-loss, fake_loss: 0.002361847320571542    
+2025-09-22 07:17:34,747 - INFO - Iter: 31994    training-metric, acc: 1.0    training-metric, auc: 1.0    training-metric, eer: 0.0    training-metric, ap: 1.0    
+2025-09-22 07:28:05,071 - INFO - Iter: 32294    training-loss, overall: 0.04313834756612778    training-loss, real_loss: 0.13735821843147278    training-loss, fake_loss: 0.026811620220541954    
+2025-09-22 07:28:05,072 - INFO - Iter: 32294    training-metric, acc: 0.9827499999999993    training-metric, auc: 0.998073223814671    training-metric, eer: 0.0010386705017577502    training-metric, ap: 0.9996574490804915    
+2025-09-22 07:38:35,230 - INFO - Iter: 32594    training-loss, overall: 0.046241216361522675    training-loss, real_loss: 0.1472230851650238    training-loss, fake_loss: 0.029800813645124435    
+2025-09-22 07:38:35,231 - INFO - Iter: 32594    training-metric, acc: 0.9798333333333323    training-metric, auc: 0.9972112289628471    training-metric, eer: 0.0018835978835978835    training-metric, ap: 0.9995624206480151    
+2025-09-22 07:49:05,464 - INFO - Iter: 32894    training-loss, overall: 0.04341578856110573    training-loss, real_loss: 0.12307557463645935    training-loss, fake_loss: 0.02882278524339199    
+2025-09-22 07:49:05,465 - INFO - Iter: 32894    training-metric, acc: 0.9816666666666661    training-metric, auc: 0.9976313233122799    training-metric, eer: 0.001513227513227513    training-metric, ap: 0.99955219564849    
+2025-09-22 07:50:29,718 - INFO - ===> Test start!
+2025-09-22 07:50:29,726 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-22 07:50:50,097 - INFO - dataset: UADFV_HAV-DF_test    step: 32934    testing-loss, overall: 0.13752524554729462    testing-loss, real_loss: 0.27425041794776917    testing-loss, fake_loss: 0.06738999485969543    
+2025-09-22 07:50:50,099 - INFO - dataset: UADFV_HAV-DF_test    step: 32934    testing-metric, acc: 0.9528061224489796    testing-metric, auc: 0.9882424532197421    testing-metric, eer: 0.0599250936329588    testing-metric, ap: 0.9935438210127263    testing-metric, video_auc: 1.0    testing-metric, video_eer: 0.0    testing-metric, video_acc: 1.0    testing-metric, acc_real:0.9438202247191011; acc_fake:0.9574468085106383
+2025-09-22 07:50:50,099 - INFO - dataset: avg    step: 32934    testing-metric, acc: 0.9528061224489796    testing-metric, auc: 0.9882424532197421    testing-metric, eer: 0.0599250936329588    testing-metric, ap: 0.9935438210127263    testing-metric, video_auc: 1.0    
+2025-09-22 07:50:50,100 - INFO - ===> Test Done!
+2025-09-22 07:59:56,014 - INFO - Iter: 33194    training-loss, overall: 0.042149562388658524    training-loss, real_loss: 0.13261833786964417    training-loss, fake_loss: 0.02640685811638832    
+2025-09-22 07:59:56,015 - INFO - Iter: 33194    training-metric, acc: 0.9829166666666661    training-metric, auc: 0.9981766444058214    training-metric, eer: 0.0005574136008918618    training-metric, ap: 0.9996932830418556    
+2025-09-22 08:10:26,152 - INFO - Iter: 33494    training-loss, overall: 0.04481622949242592    training-loss, real_loss: 0.13711944222450256    training-loss, fake_loss: 0.02933737449347973    
+2025-09-22 08:10:26,153 - INFO - Iter: 33494    training-metric, acc: 0.9810833333333333    training-metric, auc: 0.9974695672110854    training-metric, eer: 0.0011111111111111111    training-metric, ap: 0.9996086348213065    
+2025-09-22 08:20:56,327 - INFO - Iter: 33794    training-loss, overall: 0.04769511893391609    training-loss, real_loss: 0.13393957912921906    training-loss, fake_loss: 0.0314130000770092    
+2025-09-22 08:20:56,328 - INFO - Iter: 33794    training-metric, acc: 0.9800833333333326    training-metric, auc: 0.9974535633108299    training-metric, eer: 0.002157407407407408    training-metric, ap: 0.9995493694917293    
+2025-09-22 08:23:45,760 - INFO - ===> Test start!
+2025-09-22 08:23:45,767 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-22 08:24:06,137 - INFO - dataset: UADFV_HAV-DF_test    step: 33875    testing-loss, overall: 0.14533670246601105    testing-loss, real_loss: 0.22866161167621613    testing-loss, fake_loss: 0.10318507999181747    
+2025-09-22 08:24:06,138 - INFO - dataset: UADFV_HAV-DF_test    step: 33875    testing-metric, acc: 0.9438775510204082    testing-metric, auc: 0.9875035316106318    testing-metric, eer: 0.056179775280898875    testing-metric, ap: 0.9932451347359986    testing-metric, video_auc: 1.0    testing-metric, video_eer: 0.0    testing-metric, video_acc: 1.0    testing-metric, acc_real:0.9250936329588015; acc_fake:0.9535783365570599
+2025-09-22 08:24:06,139 - INFO - dataset: avg    step: 33875    testing-metric, acc: 0.9438775510204082    testing-metric, auc: 0.9875035316106318    testing-metric, eer: 0.056179775280898875    testing-metric, ap: 0.9932451347359986    testing-metric, video_auc: 1.0    
+2025-09-22 08:24:06,139 - INFO - ===> Test Done!
+2025-09-22 08:24:06,364 - INFO - ===> Epoch[17] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV_HAV-DF_test:  auc=0.9900825129130173 | 
+============================================================================================= 
+================================== Average best metric ====================================== 
+| avg auc: 0.9900825129130173 | 
+| UADFV_HAV-DF_test: 0.9900825129130173 | 
+=============================================================================================!
+2025-09-22 08:24:06,365 - INFO - ===> Epoch[18] start!
+2025-09-22 08:24:06,418 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/train/UADFV_FairFD_Indian,UADFV_HAV-DF_train/data_dict_train.pickle
+2025-09-22 08:24:10,359 - INFO - Iter: 33876    training-loss, overall: 0.03556104376912117    training-loss, real_loss: 0.08467826247215271    training-loss, fake_loss: 0.026893295347690582    
+2025-09-22 08:24:10,360 - INFO - Iter: 33876    training-metric, acc: 0.975    training-metric, auc: 1.0    training-metric, eer: 0.0    training-metric, ap: 1.0    
+2025-09-22 08:34:40,520 - INFO - Iter: 34176    training-loss, overall: 0.04080739617347717    training-loss, real_loss: 0.11838223040103912    training-loss, fake_loss: 0.0264838095754385    
+2025-09-22 08:34:40,521 - INFO - Iter: 34176    training-metric, acc: 0.9830833333333326    training-metric, auc: 0.9980127655779221    training-metric, eer: 0.002414141414141414    training-metric, ap: 0.9996159553863843    
+2025-09-22 08:45:10,735 - INFO - Iter: 34476    training-loss, overall: 0.044188275933265686    training-loss, real_loss: 0.1375991851091385    training-loss, fake_loss: 0.02804594114422798    
+2025-09-22 08:45:10,736 - INFO - Iter: 34476    training-metric, acc: 0.9829166666666659    training-metric, auc: 0.9979622745768246    training-metric, eer: 0.0009722222222222221    training-metric, ap: 0.9996828970401359    
+2025-09-22 08:55:40,856 - INFO - Iter: 34776    training-loss, overall: 0.04421446472406387    training-loss, real_loss: 0.12403114885091782    training-loss, fake_loss: 0.029786542057991028    
+2025-09-22 08:55:40,856 - INFO - Iter: 34776    training-metric, acc: 0.9821666666666661    training-metric, auc: 0.9979350571953085    training-metric, eer: 0.0004761904761904762    training-metric, ap: 0.999630595365303    
+2025-09-22 08:57:05,147 - INFO - ===> Test start!
+2025-09-22 08:57:05,156 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-22 08:57:30,643 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/ckpt_best.pth, current ckpt is 18+940
+2025-09-22 08:57:30,649 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/metric_dict_best.pickle
+2025-09-22 08:57:30,650 - INFO - dataset: UADFV_HAV-DF_test    step: 34816    testing-loss, overall: 0.12540823221206665    testing-loss, real_loss: 0.21762490272521973    testing-loss, fake_loss: 0.0772642195224762    
+2025-09-22 08:57:30,652 - INFO - dataset: UADFV_HAV-DF_test    step: 34816    testing-metric, acc: 0.9591836734693877    testing-metric, auc: 0.9916545324147523    testing-metric, eer: 0.04119850187265917    testing-metric, ap: 0.9953010064729328    testing-metric, video_auc: 1.0    testing-metric, video_eer: 0.0    testing-metric, video_acc: 1.0    testing-metric, acc_real:0.947565543071161; acc_fake:0.965183752417795
+2025-09-22 08:57:35,765 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/ckpt_best.pth, current ckpt is 18+940
+2025-09-22 08:57:36,161 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/metric_dict_best.pickle
+2025-09-22 08:57:36,162 - INFO - dataset: avg    step: 34816    testing-metric, acc: 0.9591836734693877    testing-metric, auc: 0.9916545324147523    testing-metric, eer: 0.04119850187265917    testing-metric, ap: 0.9953010064729328    testing-metric, video_auc: 1.0    
+2025-09-22 08:57:36,163 - INFO - ===> Test Done!
+2025-09-22 09:06:42,242 - INFO - Iter: 35076    training-loss, overall: 0.04457084834575653    training-loss, real_loss: 0.12456733733415604    training-loss, fake_loss: 0.030207619071006775    
+2025-09-22 09:06:42,243 - INFO - Iter: 35076    training-metric, acc: 0.9816666666666662    training-metric, auc: 0.9978459537404955    training-metric, eer: 0.001914021164021164    training-metric, ap: 0.9996056003277408    
+2025-09-22 09:17:12,837 - INFO - Iter: 35376    training-loss, overall: 0.04342254251241684    training-loss, real_loss: 0.13476860523223877    training-loss, fake_loss: 0.027598857879638672    
+2025-09-22 09:17:12,838 - INFO - Iter: 35376    training-metric, acc: 0.9816666666666657    training-metric, auc: 0.9974094050568463    training-metric, eer: 0.0015    training-metric, ap: 0.9995969512695884    
+2025-09-22 09:27:43,212 - INFO - Iter: 35676    training-loss, overall: 0.04481009021401405    training-loss, real_loss: 0.13563881814479828    training-loss, fake_loss: 0.027063585817813873    
+2025-09-22 09:27:43,213 - INFO - Iter: 35676    training-metric, acc: 0.9813333333333327    training-metric, auc: 0.9979280309322331    training-metric, eer: 0.0012583892617449664    training-metric, ap: 0.9996323565307719    
+2025-09-22 09:30:32,783 - INFO - ===> Test start!
+2025-09-22 09:30:32,791 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-22 09:30:58,518 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/ckpt_best.pth, current ckpt is 18+1881
+2025-09-22 09:31:00,739 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/metric_dict_best.pickle
+2025-09-22 09:31:00,741 - INFO - dataset: UADFV_HAV-DF_test    step: 35757    testing-loss, overall: 0.1254294067621231    testing-loss, real_loss: 0.2668890953063965    testing-loss, fake_loss: 0.051987458020448685    
+2025-09-22 09:31:00,742 - INFO - dataset: UADFV_HAV-DF_test    step: 35757    testing-metric, acc: 0.9642857142857143    testing-metric, auc: 0.9923499880468563    testing-metric, eer: 0.04119850187265917    testing-metric, ap: 0.995788372486001    testing-metric, video_auc: 1.0    testing-metric, video_eer: 0.0    testing-metric, video_acc: 1.0    testing-metric, acc_real:0.951310861423221; acc_fake:0.9709864603481625
+2025-09-22 09:31:08,071 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/ckpt_best.pth, current ckpt is 18+1881
+2025-09-22 09:31:08,172 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/metric_dict_best.pickle
+2025-09-22 09:31:08,172 - INFO - dataset: avg    step: 35757    testing-metric, acc: 0.9642857142857143    testing-metric, auc: 0.9923499880468563    testing-metric, eer: 0.04119850187265917    testing-metric, ap: 0.995788372486001    testing-metric, video_auc: 1.0    
+2025-09-22 09:31:08,173 - INFO - ===> Test Done!
+2025-09-22 09:31:08,436 - INFO - ===> Epoch[18] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV_HAV-DF_test:  auc=0.9923499880468563 | 
+============================================================================================= 
+================================== Average best metric ====================================== 
+| avg auc: 0.9923499880468563 | 
+| UADFV_HAV-DF_test: 0.9923499880468563 | 
+=============================================================================================!
+2025-09-22 09:31:08,436 - INFO - ===> Epoch[19] start!
+2025-09-22 09:31:08,507 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/train/UADFV_FairFD_Indian,UADFV_HAV-DF_train/data_dict_train.pickle
+2025-09-22 09:31:12,526 - INFO - Iter: 35758    training-loss, overall: 0.07716988772153854    training-loss, real_loss: 0.05295376852154732    training-loss, fake_loss: 0.08420037478208542    
+2025-09-22 09:31:12,527 - INFO - Iter: 35758    training-metric, acc: 0.975    training-metric, auc: 0.992831541218638    training-metric, eer: 0.0    training-metric, ap: 0.9980449657869013    
+2025-09-22 09:41:42,760 - INFO - Iter: 36058    training-loss, overall: 0.04254308342933655    training-loss, real_loss: 0.12421291321516037    training-loss, fake_loss: 0.02772359549999237    
+2025-09-22 09:41:42,761 - INFO - Iter: 36058    training-metric, acc: 0.9833333333333322    training-metric, auc: 0.9981490485162855    training-metric, eer: 0.0006267806267806268    training-metric, ap: 0.9996490199885009    
+2025-09-22 09:52:12,999 - INFO - Iter: 36358    training-loss, overall: 0.04454630985856056    training-loss, real_loss: 0.12154233455657959    training-loss, fake_loss: 0.029472345486283302    
+2025-09-22 09:52:13,000 - INFO - Iter: 36358    training-metric, acc: 0.9821666666666656    training-metric, auc: 0.9976758686629763    training-metric, eer: 0.001226309921962096    training-metric, ap: 0.9995588579580387    
+2025-09-22 10:02:43,276 - INFO - Iter: 36658    training-loss, overall: 0.043937526643276215    training-loss, real_loss: 0.125321626663208    training-loss, fake_loss: 0.02903742529451847    
+2025-09-22 10:02:43,276 - INFO - Iter: 36658    training-metric, acc: 0.9820833333333333    training-metric, auc: 0.9979419027519486    training-metric, eer: 0.0018095238095238095    training-metric, ap: 0.9996358049391592    
+2025-09-22 10:04:07,528 - INFO - ===> Test start!
+2025-09-22 10:04:07,535 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-22 10:04:27,884 - INFO - dataset: UADFV_HAV-DF_test    step: 36698    testing-loss, overall: 0.13776420056819916    testing-loss, real_loss: 0.22885935008525848    testing-loss, fake_loss: 0.08993177860975266    
+2025-09-22 10:04:27,886 - INFO - dataset: UADFV_HAV-DF_test    step: 36698    testing-metric, acc: 0.9579081632653061    testing-metric, auc: 0.9897854954034729    testing-metric, eer: 0.04868913857677903    testing-metric, ap: 0.9944830906473219    testing-metric, video_auc: 1.0    testing-metric, video_eer: 0.0    testing-metric, video_acc: 1.0    testing-metric, acc_real:0.947565543071161; acc_fake:0.9632495164410058
+2025-09-22 10:04:27,887 - INFO - dataset: avg    step: 36698    testing-metric, acc: 0.9579081632653061    testing-metric, auc: 0.9897854954034729    testing-metric, eer: 0.04868913857677903    testing-metric, ap: 0.9944830906473219    testing-metric, video_auc: 1.0    
+2025-09-22 10:04:27,887 - INFO - ===> Test Done!
+2025-09-22 10:13:33,886 - INFO - Iter: 36958    training-loss, overall: 0.04146260768175125    training-loss, real_loss: 0.11993634700775146    training-loss, fake_loss: 0.027007892727851868    
+2025-09-22 10:13:33,886 - INFO - Iter: 36958    training-metric, acc: 0.9814999999999998    training-metric, auc: 0.9977741867912624    training-metric, eer: 0.002438020916281786    training-metric, ap: 0.9996099008123325    
+2025-09-22 10:24:04,064 - INFO - Iter: 37258    training-loss, overall: 0.04462973028421402    training-loss, real_loss: 0.1255633682012558    training-loss, fake_loss: 0.029010852798819542    
+2025-09-22 10:24:04,065 - INFO - Iter: 37258    training-metric, acc: 0.981749999999999    training-metric, auc: 0.9979655899497395    training-metric, eer: 0.0031987336335162425    training-metric, ap: 0.9996260149590189    
+2025-09-22 10:34:34,177 - INFO - Iter: 37558    training-loss, overall: 0.04279800131917    training-loss, real_loss: 0.12230651825666428    training-loss, fake_loss: 0.028123486787080765    
+2025-09-22 10:34:34,178 - INFO - Iter: 37558    training-metric, acc: 0.9829999999999995    training-metric, auc: 0.9977808501973834    training-metric, eer: 0.0013227513227513227    training-metric, ap: 0.9996048911231616    
+2025-09-22 10:37:23,589 - INFO - ===> Test start!
+2025-09-22 10:37:23,597 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-22 10:37:49,361 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/ckpt_best.pth, current ckpt is 19+1881
+2025-09-22 10:37:49,366 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/metric_dict_best.pickle
+2025-09-22 10:37:49,368 - INFO - dataset: UADFV_HAV-DF_test    step: 37639    testing-loss, overall: 0.1276860386133194    testing-loss, real_loss: 0.15262651443481445    testing-loss, fake_loss: 0.11448042839765549    
+2025-09-22 10:37:49,368 - INFO - dataset: UADFV_HAV-DF_test    step: 37639    testing-metric, acc: 0.9566326530612245    testing-metric, auc: 0.9925310962843834    testing-metric, eer: 0.04119850187265917    testing-metric, ap: 0.9961336519890736    testing-metric, video_auc: 1.0    testing-metric, video_eer: 0.0    testing-metric, video_acc: 1.0    testing-metric, acc_real:0.951310861423221; acc_fake:0.9593810444874274
+2025-09-22 10:38:00,534 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/ckpt_best.pth, current ckpt is 19+1881
+2025-09-22 10:38:00,877 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/metric_dict_best.pickle
+2025-09-22 10:38:00,878 - INFO - dataset: avg    step: 37639    testing-metric, acc: 0.9566326530612245    testing-metric, auc: 0.9925310962843834    testing-metric, eer: 0.04119850187265917    testing-metric, ap: 0.9961336519890736    testing-metric, video_auc: 1.0    
+2025-09-22 10:38:00,878 - INFO - ===> Test Done!
+2025-09-22 10:38:01,115 - INFO - ===> Epoch[19] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV_HAV-DF_test:  auc=0.9925310962843834 | 
+============================================================================================= 
+================================== Average best metric ====================================== 
+| avg auc: 0.9925310962843834 | 
+| UADFV_HAV-DF_test: 0.9925310962843834 | 
+=============================================================================================!
+2025-09-22 10:38:01,116 - INFO - ===> Epoch[20] start!
+2025-09-22 10:38:02,611 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/train/UADFV_FairFD_Indian,UADFV_HAV-DF_train/data_dict_train.pickle
+2025-09-22 10:38:06,571 - INFO - Iter: 37640    training-loss, overall: 0.026299456134438515    training-loss, real_loss: 0.007752740290015936    training-loss, fake_loss: 0.03248169273138046    
+2025-09-22 10:38:06,572 - INFO - Iter: 37640    training-metric, acc: 0.975    training-metric, auc: 1.0    training-metric, eer: 0.0    training-metric, ap: 0.9999999999999999    
+2025-09-22 10:48:36,727 - INFO - Iter: 37940    training-loss, overall: 0.04228808730840683    training-loss, real_loss: 0.12090174853801727    training-loss, fake_loss: 0.027653517201542854    
+2025-09-22 10:48:36,728 - INFO - Iter: 37940    training-metric, acc: 0.9830833333333324    training-metric, auc: 0.9979983868574036    training-metric, eer: 0.0015993265993265993    training-metric, ap: 0.9996248707841947    
+2025-09-22 10:59:06,786 - INFO - Iter: 38240    training-loss, overall: 0.040719058364629745    training-loss, real_loss: 0.11589233577251434    training-loss, fake_loss: 0.026129452511668205    
+2025-09-22 10:59:06,786 - INFO - Iter: 38240    training-metric, acc: 0.9834999999999989    training-metric, auc: 0.9982119733567888    training-metric, eer: 0.0032438672438672438    training-metric, ap: 0.9996623106301669    
+2025-09-22 11:09:36,879 - INFO - Iter: 38540    training-loss, overall: 0.042914800345897675    training-loss, real_loss: 0.11703323572874069    training-loss, fake_loss: 0.028869852423667908    
+2025-09-22 11:09:36,879 - INFO - Iter: 38540    training-metric, acc: 0.9837499999999996    training-metric, auc: 0.9980212394864296    training-metric, eer: 0.00030303030303030303    training-metric, ap: 0.9996669951232195    
+2025-09-22 11:11:01,113 - INFO - ===> Test start!
+2025-09-22 11:11:01,120 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-22 11:11:26,903 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/ckpt_best.pth, current ckpt is 20+940
+2025-09-22 11:11:27,048 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/metric_dict_best.pickle
+2025-09-22 11:11:27,050 - INFO - dataset: UADFV_HAV-DF_test    step: 38580    testing-loss, overall: 0.13743804395198822    testing-loss, real_loss: 0.08143719285726547    testing-loss, fake_loss: 0.16571159660816193    
+2025-09-22 11:11:27,050 - INFO - dataset: UADFV_HAV-DF_test    step: 38580    testing-metric, acc: 0.9438775510204082    testing-metric, auc: 0.9944001332956629    testing-metric, eer: 0.0299625468164794    testing-metric, ap: 0.9970319683474651    testing-metric, video_auc: 1.0    testing-metric, video_eer: 0.0    testing-metric, video_acc: 1.0    testing-metric, acc_real:0.9438202247191011; acc_fake:0.9439071566731141
+2025-09-22 11:11:32,367 - INFO - Checkpoint saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/ckpt_best.pth, current ckpt is 20+940
+2025-09-22 11:11:33,158 - INFO - Metrics saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/avg/metric_dict_best.pickle
+2025-09-22 11:11:33,159 - INFO - dataset: avg    step: 38580    testing-metric, acc: 0.9438775510204082    testing-metric, auc: 0.9944001332956629    testing-metric, eer: 0.0299625468164794    testing-metric, ap: 0.9970319683474651    testing-metric, video_auc: 1.0    
+2025-09-22 11:11:33,160 - INFO - ===> Test Done!
+2025-09-22 11:20:39,327 - INFO - Iter: 38840    training-loss, overall: 0.04230883717536926    training-loss, real_loss: 0.13104939460754395    training-loss, fake_loss: 0.026548326015472412    
+2025-09-22 11:20:39,327 - INFO - Iter: 38840    training-metric, acc: 0.9819999999999988    training-metric, auc: 0.9978421168320976    training-metric, eer: 0.002432336182336182    training-metric, ap: 0.9996412627445417    
+2025-09-22 11:31:09,541 - INFO - Iter: 39140    training-loss, overall: 0.04312826693058014    training-loss, real_loss: 0.12057008594274521    training-loss, fake_loss: 0.028804203495383263    
+2025-09-22 11:31:09,542 - INFO - Iter: 39140    training-metric, acc: 0.982333333333333    training-metric, auc: 0.997580489377701    training-metric, eer: 0.003673400673400673    training-metric, ap: 0.9995583977520158    
+2025-09-22 11:41:39,579 - INFO - Iter: 39440    training-loss, overall: 0.048574287444353104    training-loss, real_loss: 0.1584019511938095    training-loss, fake_loss: 0.030322181060910225    
+2025-09-22 11:41:39,579 - INFO - Iter: 39440    training-metric, acc: 0.9795833333333328    training-metric, auc: 0.9974162828718041    training-metric, eer: 0.0011111111111111111    training-metric, ap: 0.9995721037139235    
+2025-09-22 11:44:29,009 - INFO - ===> Test start!
+2025-09-22 11:44:29,017 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/test/UADFV_HAV-DF_test/data_dict_test.pickle
+2025-09-22 11:44:49,420 - INFO - dataset: UADFV_HAV-DF_test    step: 39521    testing-loss, overall: 0.12477155774831772    testing-loss, real_loss: 0.1507270187139511    testing-loss, fake_loss: 0.11178243160247803    
+2025-09-22 11:44:49,421 - INFO - dataset: UADFV_HAV-DF_test    step: 39521    testing-metric, acc: 0.9540816326530612    testing-metric, auc: 0.9906041046370954    testing-metric, eer: 0.04119850187265917    testing-metric, ap: 0.9947590718680064    testing-metric, video_auc: 1.0    testing-metric, video_eer: 0.0    testing-metric, video_acc: 0.99    testing-metric, acc_real:0.9438202247191011; acc_fake:0.9593810444874274
+2025-09-22 11:44:49,422 - INFO - dataset: avg    step: 39521    testing-metric, acc: 0.9540816326530612    testing-metric, auc: 0.9906041046370954    testing-metric, eer: 0.04119850187265917    testing-metric, ap: 0.9947590718680064    testing-metric, video_auc: 1.0    
+2025-09-22 11:44:49,422 - INFO - ===> Test Done!
+2025-09-22 11:44:49,660 - INFO - ===> Epoch[20] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV_HAV-DF_test:  auc=0.9944001332956629 | 
+============================================================================================= 
+================================== Average best metric ====================================== 
+| avg auc: 0.9944001332956629 | 
+| UADFV_HAV-DF_test: 0.9944001332956629 | 
+=============================================================================================!
+2025-09-22 11:44:49,661 - INFO - ===> Epoch[21] start!
+2025-09-22 11:44:49,725 - INFO - data_dict saved to ./zhiyuanyan/logs/benchv2/icml25/release/effort_2025-09-21-12-19-07/train/UADFV_FairFD_Indian,UADFV_HAV-DF_train/data_dict_train.pickle
+2025-09-22 11:44:53,668 - INFO - Iter: 39522    training-loss, overall: 0.06850586086511612    training-loss, real_loss: 0.19181659817695618    training-loss, fake_loss: 0.032705970108509064    
+2025-09-22 11:44:53,669 - INFO - Iter: 39522    training-metric, acc: 0.95    training-metric, auc: 0.992831541218638    training-metric, eer: 0.0    training-metric, ap: 0.998044965786901    
